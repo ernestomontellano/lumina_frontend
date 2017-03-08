@@ -1,14 +1,8 @@
-(function() {
+(function () {
   'use strict';
-
   angular
     .module('luminaFrontend')
-    .run(runBlock);
-
-  /** @ngInject */
-  function runBlock($log) {
-
-    $log.debug('runBlock end');
-  }
-
+    .run(function ($rootScope) {
+      $rootScope.api = 'http://localhost:8000';
+    });
 })();

@@ -1,7 +1,10 @@
 node_modules/
 bower_components/
 coverage/
+dist/
+nbproject/
 .sass-cache/
 .idea/
 .tmp/
-dist/
+._.DS_Store
+.DS_Store

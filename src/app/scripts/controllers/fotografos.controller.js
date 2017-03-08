@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .config(function ($logProvider) {
-      $logProvider.debugEnabled(true);
+    .controller('FotografosController', function () {
+      var vm = this;
     });
 })();
