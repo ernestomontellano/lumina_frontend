@@ -8,13 +8,13 @@
       // EJEMPLO TABLESERVICE
       var parametros = {
         comparaciones: [
-          {campo: 'id', operador: 'mayor', dato: 5}
+          {campo: 'state', operador: 'igual', dato: 'contacto'}
         ],
         orden: [
-          {campo: 'nombre', direccion: 'asc'}
+          {campo: 'id', direccion: 'asc'}
         ]
       };
-      TablesService.filtrar('fotografos', parametros)
+      TablesService.filtrar('contenidos', parametros)
         .success(function (respuesta) {
           $log.debug(respuesta);
         });
