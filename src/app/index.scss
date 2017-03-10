@@ -2,17 +2,19 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,500i,700,700i');
 
 $gris_lumina: #919395;
-$gris_fondo:#B3B3B3;
-$rojo:#F0193C;
+$gris_fondo: #B3B3B3;
+$gris_medio: #979797;
+$gris_obscuro: #333;
+
+$rojo: #F0193C;
 
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif:  'Raleway', sans-serif !default;
-$headings-font-weight:    700 !default
-$text-color:            $gris_lumina !default;
+$font-family-sans-serif: 'Raleway', sans-serif !default;
+$headings-font-weight: 700 !default$text-color: $gris_lumina !default;
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -35,49 +37,135 @@ $text-color:            $gris_lumina !default;
     width: 50px;
   }
 }
-body{
+
+body {
   background: $gris_fondo;
-  .container{
+  .container {
     background: white;
   }
 }
+
 /* HEADER  */
 
-header{
+header {
   @extend .row;
-  border-bottom:3px solid $rojo;
+  .utilities {
+    nav {
+      border: 0;
+      background: none;
+      margin-right: 0;
+      ul {
+        li {
+          a {
+            span.glyphicon {
+              font-size: 1.4em;
+            }
+            span.badge {
+              background: $rojo;
+            }
+          }
+        }
+      }
+    }
+  }
+  .main-menu {
+    nav {
+      border: 0;
+      background: none;
+      margin-right: 25%;
 
-  h1{
+    }
+  }
+
+  h1 {
     background: url("../assets/images/logo.svg") no-repeat;
     @extend .text-hide;
     height: 70px;
-    width:200px;
+    width: 200px;
   }
 }
+
+/* HOME */
+
+.galeria_home {
+  @extend .row;
+}
+
+.slogan {
+  text-align: center;
+  font-style: italic;
+  margin: 1.6em;
+  color: lighten($gris_lumina, 20%);
+}
+
+.destacado_home {
+  margin-bottom: 4em;
+  @extend .row;
+  .txt_destacado_home {
+    @extend .col-md-5;
+    @extend .col-md-offset-2;
+    text-align: right;
+    .gal_destacada{
+      text-transform: uppercase;
+      font-size:1em;
+      &::after{
+        content: '';
+        display: inline-block;
+        width: .8em;
+        height: .8em;
+        margin-left: .6em;
+        border-radius:50%;
+        background-color: $rojo;
+      }
+    }
+    h3{
+      color: $gris_obscuro;
+      text-transform: uppercase;
+      font-size: 1.4em;
+      font-weight:700;
+    }
+    .btn_destacado_home{
+      @extend .btn;
+      @extend .btn-default;
+    }
+  }
+  .img_destacado_home {
+    @extend .col-md-5;
+  }
+}
+
 /* FOOTER */
 
-footer{
+footer {
   @extend .row;
-  padding: 40px;
-  border-top:3px solid $gris_lumina;
-  .iconica{
-    @extend .col-md-3;
-    border-right:2px solid $rojo;
+  padding: 1.6em 0;
+  border-top: 1px solid $gris_medio;
+  margin:0 2em;
+  .derechos {
+    @extend .col-md-10;
     p{
-      font-size:0.8em;
+      font-size: .8em;
+      text-align: right;
     }
-    .logo_iconica{
+  }
+  .iconica {
+    @extend .col-md-2;
+    p {
+      font-size: .8em;
+      text-transform: uppercase;
+      color: $gris_obscuro;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+    .logo_iconica {
       display: block;
       background: url("../assets/images/logo_iconica.svg") no-repeat;
       @extend .text-hide;
-      width: 95px;
-      height: 20px;
-      @extend .pull-right;
+      width: 130px;
+      height: 30px;
     }
   }
-  .derechos{
-    @extend .col-md-9;
-  }
+
 
 }
 
