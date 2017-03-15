@@ -3,20 +3,19 @@
   <div class="cont_fotografos">
     <h2>Fotógrafos</h2>
     <ul class="list-unstyled lista_fotografos">
-      <li ng-repeat="fotografos in fotografos.fotografos">
+      <li ng-repeat="fotografs in vmfotografos.fotografos">
         <div class="fotografo_thumbnail">
-          <img src="{{fotografos.imagen}}" alt="">
+          <img ng-src="{{fotografs.imagen}}" alt="{{fotografs.nombre}}">
           <div class="caption">
             <p class="nombre">
-            {{fotografos.nombre}}
-          </p>
+              {{fotografs.nombre}}
+            </p>
             <p class="ver_cat">
-              <a ui-sref="fotografo">
+              <a href ng-click="vmfotografos.mostrarFotografo(fotografs.id)">
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 VER CATÁLOGO
               </a>
             </p>
-
           </div>
         </div>
       </li>

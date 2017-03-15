@@ -2,47 +2,27 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('FotografosController', function () {
+    .controller('FotografosController', function ($log, $rootScope, TablesService) {
       var vm = this;
-
-      vm.fotografos = [
-        {
-          "nombre":"Sebastián Ormachea",
-          "imagen":"../assets/images/foto-sebas.png",
-          "link":""
-        },
-        {
-          "nombre":"Tony Suarez",
-          "imagen":"../assets/images/foto-tony.jpg",
-          "link":""
-        },
-        {
-          "nombre":"Lorem ipsum dolor",
-          "imagen":"../assets/images/perfil.jpg",
-          "link":""
-        },
-        {
-          "nombre":"Lorem ipsum dolor",
-          "imagen":"../assets/images/perfil.jpg",
-          "link":""
-        },
-        {
-          "nombre":"Lorem ipsum dolor",
-          "imagen":"../assets/images/perfil.jpg",
-          "link":""
-        },
-        {
-          "nombre":"Lorem ipsum dolor",
-          "imagen":"../assets/images/perfil.jpg",
-          "link":""
-        },
-        {
-          "nombre":"Lorem ipsum dolor",
-          "imagen":"../assets/images/perfil.jpg",
-          "link":""
+      vm.fotografos = new Array();
+      var parametros = {
+        orden: [
+          {campo: 'nombre', direccion: 'asc'}
+        ]
+      };
+      TablesService.filtrar('fotografos', parametros)
+        .success(function (response) {
+          if (response.respuesta) {
+            vm.fotografos = response.resultado.data;
+          } else {
+            $log.debug('Ocurrió un error al intentar obtener los fotógrafos')
+          }
+        });
+      vm.mostrarFotografo = function(id){
+        var parametros = {
+          id: id
         }
-      ]
-
-
+        $rootScope.cambiarPagina('fotografo', parametros, true);
+      };
     });
 })();

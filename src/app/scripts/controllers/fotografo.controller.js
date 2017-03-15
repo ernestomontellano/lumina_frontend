@@ -2,42 +2,26 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('FotografoController', function ($log) {
+    .controller('FotografoController', function ($log, $rootScope, $stateParams, TablesService) {
       var vm = this;
-      vm.catalogo = [
-        {
-          "img": "../assets/images/catalogo/catalogo1.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo2.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo3.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo4.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo5.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo6.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo7.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo8.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo9.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo10.jpg"
-        },
-        {
-          "img": "../assets/images/catalogo/catalogo11.jpg"
-        }
-      ]
+      vm.fotografo = new Array();
+      var parametros = {
+        soporte: 'true',
+        imagenes: 'true',
+        tamanhos: 'true',
+        etiquetas: 'true',
+        comparaciones: [
+          {campo: 'id', operador: 'igual', dato: $stateParams.id}
+        ]
+      };
+      TablesService.filtrar('fotografos', parametros)
+        .success(function (response) {
+          if (response.respuesta) {
+            $log.debug(response.resultado.data[0]);
+            vm.fotografo = response.resultado.data[0];
+          } else {
+            $log.debug('Ocurrió un error al intentar obtener el fotógrafo')
+          }
+        });
     });
 })();

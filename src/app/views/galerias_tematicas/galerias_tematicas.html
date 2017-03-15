@@ -1,0 +1,11 @@
+<div class="container galerias">
+  <ng-include src="'app/views/includes/header.html'"></ng-include>
+  <div class="cont_galerias">
+    <h2>Galerías Temáticas</h2>
+    <ul>
+      <li ng-repeat="tematica in vmgalerias.tematicas"><a href ng-click="vmgalerias.mostrarGaleria(tematica.id)">{{tematica.etiqueta}}</a>
+      </li>
+    </ul>
+  </div>
+  <ng-include src="'app/views/includes/footer.html'"></ng-include>
+</div>

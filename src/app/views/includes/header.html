@@ -1,7 +1,6 @@
 <header>
   <div class="col-md-3">
     <h1><a href="/">Lumina.gallery</a></h1>
-
   </div>
   <div class="col-md-9">
     <div class="row utilities">
@@ -12,24 +11,18 @@
           <li><a href=""><span class="glyphicon glyphicon-search"></span></a>
           </li>
         </ul>
-     </nav>
+      </nav>
     </div>
     <div class="row main-menu">
       <nav class="navbar navbar-default navbar-right">
         <ul class="nav navbar-nav">
-          <li><a ui-sref="inicio">INICIO</a></li>
-          <li><a ui-sref="fotografos">FOTÓGRAFOS</a></li>
-          <li><a href="">GALERÍAS TEMÁTICAS</a></li>
-          <li><a href="">CARRITO DE COMPRAS</a></li>
-          <li><a href="">CONTACTO</a></li>
+          <li><a href ng-click="clicMenu('inicio')">INICIO</a></li>
+          <li><a href ng-click="clicMenu('fotografos')">FOTÓGRAFOS</a></li>
+          <li><a href ng-click="clicMenu('galerias')">GALERÍAS TEMÁTICAS</a></li>
+          <li><a href ng-click="clicMenu('carrito')">CARRITO DE COMPRAS</a></li>
+          <li><a href ng-click="clicMenu('contacto')">CONTACTO</a></li>
         </ul>
       </nav>
-
     </div>
-
-
   </div>
-
-
-
 </header>

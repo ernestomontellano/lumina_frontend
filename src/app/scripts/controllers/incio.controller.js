@@ -4,7 +4,7 @@
     .module('luminaFrontend')
     .controller('InicioController', function ($log, TablesService) {
       var vm = this;
-
+      vm.contenidos = new Array();
       // EJEMPLO TABLESERVICE
       var parametros = {
         comparaciones: [
@@ -15,10 +15,14 @@
         ]
       };
       TablesService.filtrar('contenidos', parametros)
-        .success(function (respuesta) {
-          $log.debug(respuesta);
+        .success(function (response) {
+          if (response.respuesta) {
+            $log.debug(response.resultado.data);
+            vm.contenidos = response.resultado.data;
+          } else {
+            $log.debug('Ocurrió un error al intentar obtener los contenidos')
+          }
         });
       //
-
     });
 })();

@@ -3,6 +3,6 @@
   angular
     .module('luminaFrontend')
     .controller('CarritoComprasController', function () {
-    //  var vm = this;
+      // var vm = this;
     });
 })();
