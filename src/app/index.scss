@@ -8,7 +8,7 @@ $gris_lumina: #919395;
 $gris_fondo: #B3B3B3;
 $gris_medio: #979797;
 $gris_obscuro: #333;
-
+$gris_claro: #ddd;
 $rojo: #F0193C;
 
 $navbar-inverse-link-color: #5AADBB;
@@ -30,13 +30,6 @@ $headings-font-weight: 700 !default$text-color: $gris_lumina !default;
   padding: 0.2em 0;
 }
 
-.thumbnail {
-  height: 200px;
-
-  img.pull-right {
-    width: 50px;
-  }
-}
 
 body {
   background: $gris_fondo;
@@ -72,7 +65,7 @@ header {
     nav {
       border: 0;
       background: none;
-      margin-right: 25%;
+      margin-right: 20%;
 
     }
   }
@@ -131,6 +124,108 @@ header {
   }
   .img_destacado_home {
     @extend .col-md-5;
+  }
+}
+
+/* FOTÓGRAFOS */
+
+.fotografos{
+  .cont_fotografos{
+    @extend .row;
+    margin: 0 20px;
+    h2{
+      font-size:1.4em;
+      text-transform: uppercase;
+      font-weight:700;
+      color: $gris_obscuro;
+      margin:0 0 2em 15px;
+    }
+    .lista_fotografos{
+      li{
+        @extend .col-md-3;
+        .fotografo_thumbnail{
+          img{
+            max-height:208px;
+            @extend .img-responsive;
+          }
+          .caption {
+            margin:1em 0;
+            width: 208px;
+            p.nombre{
+              text-transform: uppercase;
+              font-size: 1.1em;
+              color: $gris_obscuro;
+            }
+            p.ver_cat{
+              text-align: right;
+             a{
+               color: $rojo;
+             }
+          }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* FOTÓGRAFO */
+.fotografo{
+  .ficha{
+    @extend .row;
+    .datos_tecnicos{
+      @extend .col-md-5;
+      .cont_datos_tecnicos{
+        @extend .row;
+        @extend .well;
+        background: $gris_claro;
+        .img{
+          @extend .col-md-4;
+        }
+        .txt {
+          @extend .col-md-8;
+          h2{
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin-top:0;
+            margin-bottom:.4em;
+            font-weight: 500;
+            color: $gris_obscuro;
+          }
+          .material{
+            text-transform: uppercase;
+          }
+          .medidas{
+            margin-bottom: 0;
+            strong{
+              font-weight: 700;
+              color: $gris_obscuro;
+            }
+          }
+        }
+      }
+    }
+    .descripcion{
+      @extend .col-md-7;
+    }
+  }
+  .galeria{
+    @extend .list-unstyled;
+    @extend .row;
+    .cont_imagen{
+      position: relative;
+      float: left;
+      max-height:208px;
+      margin: 10px;
+      a{
+        position: absolute;
+        bottom: 10px;
+        right:10px;
+        font-size:1.2em;
+        color: $rojo;
+      }
+    }
   }
 }
 

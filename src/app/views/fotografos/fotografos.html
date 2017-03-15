@@ -1,0 +1,26 @@
+<div class="container fotografos">
+  <ng-include src="'app/views/includes/header.html'"></ng-include>
+  <div class="cont_fotografos">
+    <h2>Fotógrafos</h2>
+    <ul class="list-unstyled lista_fotografos">
+      <li ng-repeat="fotografos in fotografos.fotografos">
+        <div class="fotografo_thumbnail">
+          <img src="{{fotografos.imagen}}" alt="">
+          <div class="caption">
+            <p class="nombre">
+            {{fotografos.nombre}}
+          </p>
+            <p class="ver_cat">
+              <a ui-sref="fotografo">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                VER CATÁLOGO
+              </a>
+            </p>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ng-include src="'app/views/includes/footer.html'"></ng-include>
+</div>

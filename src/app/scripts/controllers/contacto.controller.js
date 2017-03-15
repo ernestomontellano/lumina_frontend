@@ -3,6 +3,6 @@
   angular
     .module('luminaFrontend')
     .controller('ContactoController', function () {
-      var vm = this;
+    //  var vm = this;
     });
 })();

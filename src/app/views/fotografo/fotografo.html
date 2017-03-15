@@ -1,0 +1,43 @@
+<div class="container fotografo">
+  <ng-include src="'app/views/includes/header.html'"></ng-include>
+  <div class="ficha">
+    <div class="datos_tecnicos">
+      <div class="cont_datos_tecnicos">
+        <div class="img">
+          <img src="../assets/images/foto-sebas.png" alt="" class="img-responsive">
+        </div>
+        <div class="txt">
+          <h2>Sebastián Ormachea</h2>
+          <p class="material">Impresión en papel fotográfico luster de 260 G</p>
+          <p class="medidas">70 x 50m <strong>Bs. 860 ($us 125)</strong></p>
+          <p class="medidas">40 x 30m <strong>Bs. 760 ($us 110)</strong></p>
+
+        </div>
+      </div>
+    </div>
+    <div class="descripcion">
+      <p>Su trabajo siempre se basa en la forma en que ve el mundo, tratando de
+        retratar la realidad y congelar momentos únicos, como fotógrafo
+        documentalista y editorial se concentra en crear imágenes con mucha
+        energía y un estilo especial.</p>
+
+      <p>Con su fotografía autoral trata de representar su vida personal: "lo
+        que
+        soy y lo que siento" Siempre está en la búsqueda de oportunidades que lo
+        lleven a lugares nuevos, lo que se refleja en la variedad y diversidad
+        de
+        sus imágenes.</p>
+    </div>
+
+  </div>
+  <ul class="list-unstyled row galeria">
+    <li class="cont_imagen" ng-repeat="imagen in fotografo.catalogo">
+      <img src="{{imagen.img}}" alt="">
+      <a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a>
+    </li>
+
+
+  </ul>
+
+  <ng-include src="'app/views/includes/footer.html'"></ng-include>
+</div>

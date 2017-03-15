@@ -3,6 +3,6 @@
   angular
     .module('luminaFrontend')
     .controller('GaleriaController', function () {
-      var vm = this;
+    //  var vm = this;
     });
 })();
