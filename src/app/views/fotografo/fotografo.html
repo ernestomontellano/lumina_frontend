@@ -15,10 +15,52 @@
     <div class="descripcion" ng-bind-html="vmfotografo.fotografo.biografia"></div>
   </div>
   <ul class="list-unstyled row galeria">
-    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes">
+    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('lg')">
       <img ng-src="{{imagen.imagen}}" alt="{{imagen.nombre}}">
-      <a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a>
+      <a ><span class="glyphicon glyphicon-shopping-cart"></span></a>
     </li>
   </ul>
+
+  <script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title">Items para la compra</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <ul class="list-unstyled">
+        <li class="row">
+          <div class="col-md-3">
+            <img src="../assets/images/catalogo/catalogo1.jpg" alt="">
+          </div>
+          <div class="col-md-9">
+            <h3>Nombre de la imagen</h3>
+            <ul class="list-unstyled">
+              <li><strong>Autor:</strong> SEBASTIAN ORMACHEA</li>
+              <li>
+                <label for="cantidad">Cantidad: </label><input id="cantidad" type="number">
+              </li>
+              <li>
+                <label for="size">Tamaño: </label>
+                <select name="size" id="size">
+                  <option value="70x50">70 x 50 cm</option>
+                  <option value="40x30">40 x 30 cm</option>
+                </select>
+              </li>
+              <li><strong>Costo Total:</strong> <span>1244</span></li>
+            </ul>
+            <a ui-sref="carrito" class="btn btn-default btn-md" ng-click="vmModalFotografo.cerrar()"><span class="glyphicon glyphicon-shopping-cart"></span> IR AL CARRITO DE COMPRAS</a>
+          </div>
+        </li>
+      </ul>
+
+
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="vmModalFotografo.cerrar()">Continuar Comprando</button>
+      <button class="btn btn-danger" type="button" ng-click="vmModalFotografo.cancel()">Cancelar</button>
+    </div>
+  </script>
+
+
   <ng-include src="'app/views/includes/footer.html'"></ng-include>
 </div>

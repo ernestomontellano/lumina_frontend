@@ -82,6 +82,8 @@ header {
 
 .galeria_home {
   @extend .row;
+  .carousel-indicators li { visibility: hidden; }
+
 }
 
 .slogan {
@@ -208,6 +210,9 @@ header {
     }
     .descripcion{
       @extend .col-md-7;
+      p{
+        margin-bottom: .6em;
+      }
     }
   }
   .galeria{

@@ -1,7 +1,19 @@
 <div class="container">
   <ng-include src="'app/views/includes/header.html'"></ng-include>
   <div class="galeria_home">
-    <img src="assets/images/home_slider.jpg" class="img-responsive">
+
+    <div>
+        <carousel active="active" interval="vminicio.myInterval" no-wrap="vminicio.noWrapSlides">
+          <slide uib-slide ng-repeat="slide in vminicio.slides track by slide.id" index="slide.id">
+            <img ng-src="{{slide.image}}" style="margin:auto;" class="img-responsive">
+
+          </slide>
+        </carousel>
+
+
+    </div>
+
+
 
 
     <h2 class="slogan">Fotografía boliviana para el mundo</h2>
