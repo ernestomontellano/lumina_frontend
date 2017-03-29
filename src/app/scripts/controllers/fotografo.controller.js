@@ -37,7 +37,7 @@
       ];
       vm.open = function (size) {
         vm.modalInstance = $modal.open({
-          templateUrl: 'myModal.html',
+          templateUrl: 'app/views/myModal.html',
           controller: 'myModalController',
           controllerAs:'vmModalFotografo',
           size: size,

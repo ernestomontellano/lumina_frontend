@@ -25,5 +25,10 @@
         }
         $rootScope.cambiarPagina('galeria', parametros, true);
       };
-    });
+
+
+
+    })
+   
+  ;
 })();

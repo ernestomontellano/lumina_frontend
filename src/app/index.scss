@@ -10,6 +10,7 @@ $gris_medio: #979797;
 $gris_obscuro: #333;
 $gris_claro: #ddd;
 $rojo: #F0193C;
+$yellow: #dbd68d;
 
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
@@ -215,21 +216,213 @@ header {
       }
     }
   }
-  .galeria{
-    @extend .list-unstyled;
-    @extend .row;
-    .cont_imagen{
-      position: relative;
-      float: left;
-      max-height:208px;
-      margin: 10px;
-      a{
-        position: absolute;
-        bottom: 10px;
-        right:10px;
-        font-size:1.2em;
-        color: $rojo;
+
+}
+
+  .cont_galeria{
+    h2{
+      font-size:1.4em;
+      text-transform: uppercase;
+      font-weight:700;
+      color: $gris_obscuro;
+      //margin:0 0 2em 15px;
+    }
+  }
+  .cont_imagen{
+    position: relative;
+    float: left;
+    max-height:208px;
+    margin: 10px;
+    a{
+      position: absolute;
+      bottom: 10px;
+      right:10px;
+      font-size:1.2em;
+      color: $rojo;
+    }
+  }
+.galeria{
+  @extend .list-unstyled;
+  @extend .row;
+}
+
+/* MODAL */
+
+.modal-header{
+  .modal-title {
+    font-weight: 500;
+    color: $gris_medio;
+    text-transform: uppercase;
+    font-size: 1.4em;
+  }
+}
+.modal-body{
+  h3{
+    margin: 0 0 .6em 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: $gris_obscuro;
+    font-size: 1.2em;
+  }
+  ul{
+    li{
+      margin-bottom:.4em;
+      color: $gris_obscuro;
+      &.cant{
+        margin-top: 2em;
       }
+      &.total{
+        font-size:1.2em;
+        text-transform: uppercase;
+        margin-top:1em;
+        color: $gris_obscuro;
+        span{
+          display: inline-block;
+          vertical-align: top;
+          text-transform: capitalize;
+        }
+      }
+      label,strong{
+        color: $gris_obscuro;
+      }
+      #cantidad{
+        display: inline-block;
+        margin-left: 10px;
+        width: 60px;
+        //background: lighten($yellow,10%);
+        border:1px solid $gris_medio;
+        padding: 2px 10px;
+      }
+    }
+  }
+}
+
+/*GALERIAS TEMÁTICAS*/
+.galerias_tematicas{
+
+  .cont_galerias{
+    h2{
+      font-size:1.4em;
+      text-transform: uppercase;
+      font-weight:700;
+      color: $gris_obscuro;
+      margin:0 0 2em 15px;
+    }
+    ul{
+      @extend .row;
+      @extend .list-unstyled;
+      margin: 2em;
+      li{
+        @extend .col-md-4;
+        a{
+          display: block;
+          background: $gris_claro;
+          border:1px sold $gris-medio;
+          padding:6em 4em;
+          color: $gris_obscuro;
+          &:hover{
+            background: $gris-medio;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*CARRITO DE COMPRAS*/
+
+.carrito{
+  .cont_carrito{
+    margin-bottom: 2em;;
+    h2{
+      font-size:1.4em;
+      text-transform: uppercase;
+      font-weight:700;
+      color: $gris_obscuro;
+      margin:0 0 2em 15px;
+    }
+    .item_carrito{
+      border: 1px solid $gris-claro;
+      border-bottom: 1px solid $gris_medio;
+      position: relative;
+      @extend .row;
+      padding:1em;
+      margin: 0 4em;
+      h3{
+        margin: 0 0 .6em 0;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: $gris_obscuro;
+        font-size: 1.2em;
+        text-align: left;
+      }
+      ul{
+        li{
+          margin-bottom:.4em;
+          color: $gris_obscuro;
+          &.cant{
+          }
+          &.total{
+            text-transform: uppercase;
+            color: $gris_obscuro;
+            span{
+              display: inline-block;
+              vertical-align: top;
+              text-transform: capitalize;
+            }
+          }
+          label,strong{
+            color: $gris_obscuro;
+          }
+          #cantidad{
+            display: inline-block;
+            margin-left: 10px;
+            width: 60px;
+            //background: lighten($yellow,10%);
+            border:1px solid $gris_medio;
+            padding: 2px 10px;
+          }
+        }
+      }
+      .caracteristicas{
+        padding-top: 2em;
+      }
+      .cerrar{
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: none;
+      }
+    }
+    .total{
+      background: $gris_claro;
+      padding: 1em;
+      margin: 0 4em;
+
+      h3{
+        margin-top: 0;
+        font-weight: 500;
+        font-size: 1.6em;
+        color: $gris_obscuro;
+      }
+    }
+
+  }
+}
+.contacto{
+
+  .cont_contacto{
+    padding: 4em;
+    h2{
+      font-size:1.4em;
+      text-transform: uppercase;
+      font-weight:700;
+      color: $gris_obscuro;
+      margin:0 0 2em 15px;
+    }
+    p{
+      text-align: center;
     }
   }
 }

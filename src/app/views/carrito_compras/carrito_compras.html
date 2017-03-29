@@ -2,6 +2,42 @@
   <ng-include src="'app/views/includes/header.html'"></ng-include>
   <div class="cont_carrito">
     <h2>Carrito de compras</h2>
+    <div class="item_carrito" ng-repeat="item in vmcarrito.comprados">
+      <div class="col-md-2">
+        <img src="../assets/images/catalogo/catalogo1.jpg" alt=""
+             class="img-responsive">
+      </div>
+      <div class="col-md-6 caracteristicas">
+        <h3>{{item.nombre}}
+        </h3>
+        <ul class="list-unstyled">
+
+          <li>
+            <strong>Tamaño: </strong>
+            <span> 30 x 50 cm</span>
+
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-4 caracteristicas">
+        <ul class="list-unstyled">
+          <li><strong>Cantidad: </strong> <span>23</span></li>
+          <li><strong>Costo:</strong> <span>Bs. 1244 ($USD 123)</span></li>
+          <li>
+            <button class="btn btn-default cerrar"><span
+              class="glyphicon glyphicon-remove"></span></button>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <div class="total row">
+      <div class="col-md-4 col-md-offset-8">
+        <h3>TOTAL: <strong>Bs. 12345 ($USD 12)</strong></h3>
+        <button class="btn btn-success btn-lg btn-block">Confirmar Compra</button>
+      </div>
+    </div>
   </div>
   <ng-include src="'app/views/includes/footer.html'"></ng-include>
 </div>

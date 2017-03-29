@@ -1,9 +1,11 @@
-<div class="container galeria fotografo">
+<div class="container galeria_cont fotografo">
   <ng-include src="'app/views/includes/header.html'"></ng-include>
   <div class="cont_galeria">
-    <h2 style="text-transform: capitalize">Galería: {{vmgaleria.galeria.etiqueta}}</h2>
+    <h2>Galería: {{vmgaleria.galeria.etiqueta}}</h2>
+    <p>Navega en las imágenes de esta colección.</p>
     <ul class="list-unstyled row galeria">
-      <li class="cont_imagen" ng-repeat="imagen in vmgaleria.imagenes">
+      <li class="cont_imagen" ng-repeat="imagen in vmgaleria.imagenes" ng-click="vmgaleria.open('md')">
+
         <img ng-src="{{imagen.imagenes[0].imagen}}" alt="{{imagen.imagenes[0].nombre}}">
         <a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a>
       </li>

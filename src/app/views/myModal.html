@@ -1,0 +1,41 @@
+  <div class="modal-header">
+    <button type="button" class="close"  ng-click="vmModalFotografo.cerrar()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    <h3 class="modal-title" id="modal-title" >ADICIONA ESTE ITEM AL CARRITO</h3>
+
+  </div>
+  <div class="modal-body" id="modal-body">
+    <ul class="list-unstyled">
+      <li class="row">
+        <div class="col-md-6">
+          <img src="../assets/images/catalogo/catalogo1.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+          <h3>Nombre de la imagen</h3>
+          <ul class="list-unstyled">
+            <li><strong>Autor:</strong> SEBASTIAN ORMACHEA</li>
+            <li class="cant">
+              <label for="cantidad">Cantidad: </label><input id="cantidad" type="number">
+            </li>
+            <li>
+              <label for="size">Tamaño: </label>
+              <select name="size" id="size">
+                <option value="70x50">70 x 50 cm</option>
+                <option value="40x30">40 x 30 cm</option>
+              </select>
+            </li>
+            <li class="total"><strong>Costo Total:</strong> <span>Bs. 1244  <br>$USD 123</span></li>
+          <li><button class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito</button></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+
+
+  </div>
+  <div class="modal-footer">
+    <a ui-sref="carrito" class="btn btn-default btn-md" ng-click="vmModalFotografo.cerrar()"><span class="glyphicon glyphicon-shopping-cart"></span> IR AL CARRITO DE COMPRAS</a>
+    <button class="btn btn-default" type="button" ng-click="vmModalFotografo.cerrar()">Continuar Comprando</button>
+    <button class="btn btn-danger" type="button" ng-click="vmModalFotografo.cancel()">Cancelar</button>
+  </div>

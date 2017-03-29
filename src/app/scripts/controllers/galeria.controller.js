@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('GaleriaController', function ($log, $rootScope, $stateParams, TablesService) {
+    .controller('GaleriaController', function ($log, $rootScope, $stateParams, TablesService, $modal) {
       var vm = this;
       vm.galeria = new Array();
       vm.imagenes = new Array();
@@ -38,5 +38,48 @@
             $log.debug('Ocurrió un error al intentar obtener la galería')
           }
         });
-    });
+
+      vm.items = [
+        {
+          "fotografia":"algo"
+        },
+        {
+          "fotografia":"otra"
+        }
+      ];
+      vm.open = function (size) {
+        vm.modalInstance = $modal.open({
+          templateUrl: 'app/views/myModal.html',
+          controller: 'myModalController',
+          controllerAs:'vmModalFotografo',
+          size: size,
+          resolve: {
+            items: function () {
+              return vm.items
+            }
+          }
+        })
+
+      }
+
+
+    })
+    .controller('myModalController', function ($log, $modalInstance, items) {
+        var vm = this;
+
+        vm.items = items;
+        vm.save = function (param) {
+          $log.debug(param)
+
+        };
+        vm.cancel = function(){
+          $modalInstance.dismiss('cancel');
+        };
+        vm.cerrar = function(){
+          $modalInstance.close();
+        }
+
+      }
+    )
+  ;
 })();
