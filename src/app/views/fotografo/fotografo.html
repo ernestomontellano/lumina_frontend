@@ -4,7 +4,7 @@
     <div class="datos_tecnicos">
       <div class="cont_datos_tecnicos">
         <div class="img">
-          <img ng-src="{{vmfotografo.fotografo.imagen}}" alt="{{vmfotografo.fotografo.nombre}}" class="img-responsive">
+          <img ng-src="{{api}}/{{vmfotografo.fotografo.imagen}}" alt="{{vmfotografo.fotografo.nombre}}" class="img-responsive">
         </div>
         <div class="txt">
           <h2>{{vmfotografo.fotografo.nombre}}</h2>
@@ -16,7 +16,7 @@
   </div>
   <ul class="list-unstyled row galeria">
     <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md')">
-      <img ng-src="{{imagen.imagen}}" alt="{{imagen.nombre}}">
+      <img ng-src="{{api}}/{{imagen.imagen}}" alt="{{imagen.nombre}}">
       <a ><span class="glyphicon glyphicon-shopping-cart"></span></a>
     </li>
   </ul>

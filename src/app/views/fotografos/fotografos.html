@@ -5,7 +5,7 @@
     <ul class="list-unstyled lista_fotografos">
       <li ng-repeat="fotografs in vmfotografos.fotografos">
         <div class="fotografo_thumbnail">
-          <img ng-src="{{fotografs.imagen}}" alt="{{fotografs.nombre}}">
+          <img ng-src="{{api}}/{{fotografs.imagen}}" alt="{{fotografs.nombre}}">
           <div class="caption">
             <p class="nombre">
               {{fotografs.nombre}}

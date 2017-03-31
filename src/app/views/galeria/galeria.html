@@ -6,7 +6,7 @@
     <ul class="list-unstyled row galeria">
       <li class="cont_imagen" ng-repeat="imagen in vmgaleria.imagenes" ng-click="vmgaleria.open('md')">
 
-        <img ng-src="{{imagen.imagenes[0].imagen}}" alt="{{imagen.imagenes[0].nombre}}">
+        <img ng-src="{{api}}/{{imagen.imagenes[0].imagen}}" alt="{{imagen.imagenes[0].nombre}}">
         <a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a>
       </li>
     </ul>
