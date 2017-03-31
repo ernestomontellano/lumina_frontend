@@ -3,7 +3,8 @@
   angular
     .module('luminaFrontend')
     .run(function ($rootScope, $state) {
-      $rootScope.api = 'http://localhost:8000';
+      // $rootScope.api = 'http://localhost:8000';
+      $rootScope.api = 'http://lumina.gallery/api';
       $rootScope.cambiarPagina = function (state, params, reload) {
         $state.go(state, params, reload);
       };
