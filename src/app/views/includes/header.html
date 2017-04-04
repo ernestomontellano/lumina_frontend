@@ -2,12 +2,12 @@
   <div class="col-xs-4 col-md-3">
     <h1><a href="/">Lumina.gallery</a></h1>
   </div>
-  <div class="col-xs-6 col-md-9 cont_utilities">
+  <div class="col-xs-7 col-md-9 cont_utilities">
     <div class="row utilities">
       <nav class="navbar navbar-default navbar-right">
         <ul class="nav navbar-nav">
           <li class="burger">
-            <button class="navbar-toggle">
+            <button class="navbar-toggle" ng-click="muestraMenu();">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="row main-menu" ng-if="muestramenu">
+  <div class="row main-menu" ng-if="muestra_cont">
       <nav class="navbar navbar-default navbar-right">
         <ul class="nav navbar-nav">
           <li><a href ng-click="clicMenu('inicio')">INICIO</a></li>

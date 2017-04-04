@@ -42,8 +42,8 @@ body {
 
 header {
   @extend .row;
-  .cont_utilities{
-    @media (max-width:$screen-sm-max){
+  .cont_utilities {
+    @media (max-width: $screen-sm-max) {
       float: right;
 
     }
@@ -57,8 +57,8 @@ header {
           margin-bottom: 0;
         }
         ul {
-          &.navbar-nav{
-            margin:0;
+          &.navbar-nav {
+            margin: 0;
           }
           li {
 
@@ -81,11 +81,44 @@ header {
 
   .main-menu {
     margin: 0;
+    &.ng-leave {
+      transition: 0.5s linear all;
+      opacity: 1;
+
+    }
+    &.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
+    /* The starting CSS styles for the enter animation */
+    &.ng-enter {
+      transition: 0.5s linear all;
+      opacity: 0;
+    }
+
+    /* The finishing CSS styles for the enter animation */
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+    @media (max-width: $screen-xs-max) {
+      clear: both;
+    }
     nav {
       border: 0;
       background: none;
       margin-right: 20%;
-      @media (max-width:$screen-sm-max){
+      @media (max-width: $screen-xs-max) {
+        position: static;
+        margin-bottom: 0;
+        ul {
+          margin: 0;
+          li {
+            border-bottom: 1px solid $gris_medio;
+            padding-left: 10px;
+
+          }
+        }
+      }
+      @media (max-width: $screen-sm-max) {
         margin-right: 0;
 
       }
@@ -111,7 +144,8 @@ header {
 
 .galeria_home {
   @extend .row;
-  .carousel-indicators li {
+
+    .carousel-indicators li {
     visibility: hidden;
   }
 
@@ -122,15 +156,26 @@ header {
   font-style: italic;
   margin: 1.6em;
   color: lighten($gris_lumina, 20%);
+  @media (max-width: $screen-xs-max) {
+    margin: .6em 0.4em;
+    font-size: 1.8em;
+  }
 }
 
 .destacado_home {
   margin-bottom: 4em;
-  @extend .row;
+  @media (max-width: $screen-xs-max) {
+    margin-bottom: 2em;
+  }
+    @extend .row;
   .txt_destacado_home {
     @extend .col-md-5;
     @extend .col-md-offset-2;
+
     text-align: right;
+    @media (max-width: $screen-xs-max) {
+      text-align: left;
+    }
     .gal_destacada {
       text-transform: uppercase;
       font-size: 1em;
@@ -149,11 +194,21 @@ header {
       text-transform: uppercase;
       font-size: 1.4em;
       font-weight: 700;
+      @media (max-width: $screen-xs-max) {
+        font-size:1.2em;
+        margin-top: 0;
+        line-height:1.4em;
+      }
     }
     .btn_destacado_home {
       @extend .btn;
       @extend .btn-default;
-    }
+      @media (max-width:$screen-xs-max) {
+        display: block;
+        margin:1em 0 ;
+        padding: 1em;
+      }
+      }
   }
   .img_destacado_home {
     @extend .col-md-5;
@@ -381,6 +436,10 @@ header {
       @extend .row;
       padding: 1em;
       margin: 0 4em;
+      @media (max-width: $screen-xs-max) {
+        margin: 0;
+      }
+
       h3 {
         margin: 0 0 .6em 0;
         text-transform: uppercase;
@@ -431,6 +490,9 @@ header {
       background: $gris_claro;
       padding: 1em;
       margin: 0 4em;
+      @media (max-width: $screen-xs-max) {
+        margin: 1em .5em;
+      }
 
       h3 {
         margin-top: 0;
@@ -467,16 +529,29 @@ footer {
   padding: 1.6em 0;
   border-top: 1px solid $gris_medio;
   margin: 0 2em;
-  .derechos {
+  @media (max-width: $screen-xs-max) {
+    margin: 0;
+    padding: 2em 0;
+  }
+    .derechos {
     @extend .col-md-10;
-    p {
+      @media (max-width: $screen-xs-max) {
+        padding: 0;
+      }
+        p {
       font-size: .8em;
       text-align: right;
-    }
+      @media (max-width: $screen-xs-max) {
+        text-align: center;
+      }
+      }
   }
   .iconica {
     @extend .col-md-2;
-    p {
+    @media (max-width: $screen-xs-max) {
+      text-align: center;
+    }
+      p {
       font-size: .8em;
       text-transform: uppercase;
       color: $gris_obscuro;
@@ -489,7 +564,10 @@ footer {
       @extend .text-hide;
       width: 130px;
       height: 30px;
-    }
+      @media (max-width: $screen-xs-max) {
+        margin: 0 auto;
+      }
+      }
   }
 
 }
