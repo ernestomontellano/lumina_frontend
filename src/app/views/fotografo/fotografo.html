@@ -15,14 +15,10 @@
     <div class="descripcion" ng-bind-html="vmfotografo.fotografo.biografia"></div>
   </div>
   <ul class="list-unstyled row galeria">
-    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md')">
+    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md', imagen)">
       <img ng-src="{{api}}/{{imagen.imagen}}" alt="{{imagen.nombre}}">
       <a ><span class="glyphicon glyphicon-shopping-cart"></span></a>
     </li>
   </ul>
-
-
-
-
   <ng-include src="'app/views/includes/footer.html'"></ng-include>
 </div>

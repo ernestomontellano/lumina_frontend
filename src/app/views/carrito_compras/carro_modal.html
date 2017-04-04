@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="vmimagencarro.cerrarModal()" aria-label="Close"><span
+    aria-hidden="true">&times;</span>
+  </button>
+  <h3 class="modal-title" id="modal-title">ADICIONA ESTE ELEMENTO AL CARRITO</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <ul class="list-unstyled">
+    <li class="row">
+      <div class="col-md-6">
+        <img ng-src="{{api}}/{{vmimagencarro.imagenCarro.imagen}}" alt="{{vmimagencarro.imagenCarro.nombre}}"
+             class="img-responsive">
+      </div>
+      <div class="col-md-6">
+        <h3>{{vmimagencarro.imagenCarro.nombre}}</h3>
+        <ul class="list-unstyled">
+          <li><strong>Autor:</strong> SEBASTIAN ORMACHEA</li>
+          <li>
+            <label for="size">Tamaño: </label>
+            <select name="size" id="size" ng-required="true" ng-model="vmimagencarro.tamanhoTemp"
+                    ng-change="vmimagencarro.asignarImagenDisponible()">
+              <option value="0">Seleccione:</option>
+              <option value="{{tamanho.id}}//{{tamanho.tamanho}}//{{tamanho.preciobs}}//{{tamanho.preciosus}}//{{tamanho.disponible}}"
+                      ng-repeat="tamanho in vmimagencarro.imagenCarro.tamanhos">{{tamanho.tamanho}}
+              </option>
+            </select>
+          </li>
+          <li class="cant">
+            <p ng-if="vmimagencarro.carroCompra.disponible==0 && vmimagencarro.tamanhoTemp!='0'">Fotografía agotada
+              en el tamaño seleccionado</p>
+            <p ng-if="vmimagencarro.carroCompra.disponible==1">{{vmimagencarro.carroCompra.disponible}} fotografía
+              disponible en el tamaño seleccionado</p>
+            <p ng-if="vmimagencarro.carroCompra.disponible>1">{{vmimagencarro.carroCompra.disponible}} fotografías
+              disponibles en el tamaño seleccionado</p>
+          </li>
+          <li class="cant">
+            <label for="cantidad" ng-if="vmimagencarro.carroCompra.disponible>1">Cantidad: </label>
+            <input id="cantidad" type="number" ng-model="vmimagencarro.carroCompra.cantidad" ng-value="1" min="1"
+                   max="{{vmimagencarro.carroCompra.disponible}}"
+                   ng-change="vmimagencarro.actualizarTotales()"
+                   ng-if="vmimagencarro.carroCompra.disponible>0">
+          </li>
+          <li class="total" ng-if="vmimagencarro.carroCompra.disponible>1">
+            <strong>Costo Total:</strong> <span>Bs. {{vmimagencarro.carroCompra.totalbs}}
+            <br>$USD {{vmimagencarro.carroCompra.totalsus}}</span>
+          </li>
+          <li>
+            <button class="btn btn-success" ng-click="vmimagencarro.agregarAlCarro()"
+                    ng-if="((vmimagencarro.carroCompra.totalbs>0)&&(vmimagencarro.elementoAgregado==0))"><span
+              class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito
+            </button>
+            <p ng-if="vmimagencarro.elementoAgregado==1"><strong>Elemento agregado al Carro de compras</strong></p>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <a href class="btn btn-default btn-md" ng-click="vmimagencarro.cerrarModal(); clicMenu('carrito')"><span
+    class="glyphicon glyphicon-shopping-cart"></span> IR AL CARRITO DE COMPRAS</a>
+  <button class="btn btn-default" type="button" ng-click="vmimagencarro.cerrarModal()">Continuar Comprando</button>
+</div>
