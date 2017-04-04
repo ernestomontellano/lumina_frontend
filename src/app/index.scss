@@ -31,7 +31,6 @@ $headings-font-weight: 700 !default$text-color: $gris_lumina !default;
   padding: 0.2em 0;
 }
 
-
 body {
   background: $gris_fondo;
   .container {
@@ -43,31 +42,53 @@ body {
 
 header {
   @extend .row;
-  .utilities {
-    nav {
-      border: 0;
-      background: none;
-      margin-right: 0;
-      ul {
-        li {
-          a {
-            span.glyphicon {
-              font-size: 1.4em;
+  .cont_utilities{
+    @media (max-width:$screen-sm-max){
+      float: right;
+
+    }
+    .utilities {
+      nav {
+        border: 0;
+        background: none;
+        margin-right: 0;
+
+        @media (max-width: $screen-xs-max) {
+          margin-bottom: 0;
+        }
+        ul {
+          &.navbar-nav{
+            margin:0;
+          }
+          li {
+
+            @media (max-width: $screen-xs-max) {
+              float: left;
             }
-            span.badge {
-              background: $rojo;
+            a {
+              span.glyphicon {
+                font-size: 1.4em;
+              }
+              span.badge {
+                background: $rojo;
+              }
             }
           }
         }
       }
     }
   }
+
   .main-menu {
+    margin: 0;
     nav {
       border: 0;
       background: none;
       margin-right: 20%;
+      @media (max-width:$screen-sm-max){
+        margin-right: 0;
 
+      }
     }
   }
 
@@ -76,6 +97,13 @@ header {
     @extend .text-hide;
     height: 70px;
     width: 200px;
+    @media (max-width: $screen-sm-max) {
+      float: left;
+      width: 84px;
+      height: 32px;
+      margin: 10px 0;
+    }
+
   }
 }
 
@@ -83,7 +111,9 @@ header {
 
 .galeria_home {
   @extend .row;
-  .carousel-indicators li { visibility: hidden; }
+  .carousel-indicators li {
+    visibility: hidden;
+  }
 
 }
 
@@ -101,26 +131,26 @@ header {
     @extend .col-md-5;
     @extend .col-md-offset-2;
     text-align: right;
-    .gal_destacada{
+    .gal_destacada {
       text-transform: uppercase;
-      font-size:1em;
-      &::after{
+      font-size: 1em;
+      &::after {
         content: '';
         display: inline-block;
         width: .8em;
         height: .8em;
         margin-left: .6em;
-        border-radius:50%;
+        border-radius: 50%;
         background-color: $rojo;
       }
     }
-    h3{
+    h3 {
       color: $gris_obscuro;
       text-transform: uppercase;
       font-size: 1.4em;
-      font-weight:700;
+      font-weight: 700;
     }
-    .btn_destacado_home{
+    .btn_destacado_home {
       @extend .btn;
       @extend .btn-default;
     }
@@ -132,39 +162,39 @@ header {
 
 /* FOTÓGRAFOS */
 
-.fotografos{
-  .cont_fotografos{
+.fotografos {
+  .cont_fotografos {
     @extend .row;
     margin: 0 20px;
-    h2{
-      font-size:1.4em;
+    h2 {
+      font-size: 1.4em;
       text-transform: uppercase;
-      font-weight:700;
+      font-weight: 700;
       color: $gris_obscuro;
-      margin:0 0 2em 15px;
+      margin: 0 0 2em 15px;
     }
-    .lista_fotografos{
-      li{
+    .lista_fotografos {
+      li {
         @extend .col-md-3;
-        .fotografo_thumbnail{
-          img{
-            max-height:208px;
+        .fotografo_thumbnail {
+          img {
+            max-height: 208px;
             @extend .img-responsive;
           }
           .caption {
-            margin:1em 0;
+            margin: 1em 0;
             width: 208px;
-            p.nombre{
+            p.nombre {
               text-transform: uppercase;
               font-size: 1.1em;
               color: $gris_obscuro;
             }
-            p.ver_cat{
+            p.ver_cat {
               text-align: right;
-             a{
-               color: $rojo;
-             }
-          }
+              a {
+                color: $rojo;
+              }
+            }
           }
         }
       }
@@ -172,36 +202,35 @@ header {
   }
 }
 
-
 /* FOTÓGRAFO */
-.fotografo{
-  .ficha{
+.fotografo {
+  .ficha {
     @extend .row;
-    .datos_tecnicos{
+    .datos_tecnicos {
       @extend .col-md-5;
-      .cont_datos_tecnicos{
+      .cont_datos_tecnicos {
         @extend .row;
         @extend .well;
         background: $gris_claro;
-        .img{
+        .img {
           @extend .col-md-4;
         }
         .txt {
           @extend .col-md-8;
-          h2{
+          h2 {
             font-size: 1.2em;
             text-transform: uppercase;
-            margin-top:0;
-            margin-bottom:.4em;
+            margin-top: 0;
+            margin-bottom: .4em;
             font-weight: 500;
             color: $gris_obscuro;
           }
-          .material{
+          .material {
             text-transform: uppercase;
           }
-          .medidas{
+          .medidas {
             margin-bottom: 0;
-            strong{
+            strong {
               font-weight: 700;
               color: $gris_obscuro;
             }
@@ -209,9 +238,9 @@ header {
         }
       }
     }
-    .descripcion{
+    .descripcion {
       @extend .col-md-7;
-      p{
+      p {
         margin-bottom: .6em;
       }
     }
@@ -219,36 +248,38 @@ header {
 
 }
 
-  .cont_galeria{
-    h2{
-      font-size:1.4em;
-      text-transform: uppercase;
-      font-weight:700;
-      color: $gris_obscuro;
-      //margin:0 0 2em 15px;
-    }
+.cont_galeria {
+  h2 {
+    font-size: 1.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $gris_obscuro;
+    //margin:0 0 2em 15px;
   }
-  .cont_imagen{
-    position: relative;
-    float: left;
-    max-height:208px;
-    margin: 10px;
-    a{
-      position: absolute;
-      bottom: 10px;
-      right:10px;
-      font-size:1.2em;
-      color: $rojo;
-    }
+}
+
+.cont_imagen {
+  position: relative;
+  float: left;
+  max-height: 208px;
+  margin: 10px;
+  a {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    color: $rojo;
   }
-.galeria{
+}
+
+.galeria {
   @extend .list-unstyled;
   @extend .row;
 }
 
 /* MODAL */
 
-.modal-header{
+.modal-header {
   .modal-title {
     font-weight: 500;
     color: $gris_medio;
@@ -256,41 +287,42 @@ header {
     font-size: 1.4em;
   }
 }
-.modal-body{
-  h3{
+
+.modal-body {
+  h3 {
     margin: 0 0 .6em 0;
     text-transform: uppercase;
     font-weight: 500;
     color: $gris_obscuro;
     font-size: 1.2em;
   }
-  ul{
-    li{
-      margin-bottom:.4em;
+  ul {
+    li {
+      margin-bottom: .4em;
       color: $gris_obscuro;
-      &.cant{
+      &.cant {
         margin-top: 2em;
       }
-      &.total{
-        font-size:1.2em;
+      &.total {
+        font-size: 1.2em;
         text-transform: uppercase;
-        margin-top:1em;
+        margin-top: 1em;
         color: $gris_obscuro;
-        span{
+        span {
           display: inline-block;
           vertical-align: top;
           text-transform: capitalize;
         }
       }
-      label,strong{
+      label, strong {
         color: $gris_obscuro;
       }
-      #cantidad{
+      #cantidad {
         display: inline-block;
         margin-left: 10px;
         width: 60px;
         //background: lighten($yellow,10%);
-        border:1px solid $gris_medio;
+        border: 1px solid $gris_medio;
         padding: 2px 10px;
       }
     }
@@ -298,29 +330,29 @@ header {
 }
 
 /*GALERIAS TEMÁTICAS*/
-.galerias_tematicas{
+.galerias_tematicas {
 
-  .cont_galerias{
-    h2{
-      font-size:1.4em;
+  .cont_galerias {
+    h2 {
+      font-size: 1.4em;
       text-transform: uppercase;
-      font-weight:700;
+      font-weight: 700;
       color: $gris_obscuro;
-      margin:0 0 2em 15px;
+      margin: 0 0 2em 15px;
     }
-    ul{
+    ul {
       @extend .row;
       @extend .list-unstyled;
       margin: 2em;
-      li{
+      li {
         @extend .col-md-4;
-        a{
+        a {
           display: block;
           background: $gris_claro;
-          border:1px sold $gris-medio;
-          padding:6em 4em;
+          border: 1px sold $gris-medio;
+          padding: 6em 4em;
           color: $gris_obscuro;
-          &:hover{
+          &:hover {
             background: $gris-medio;
             text-decoration: none;
           }
@@ -332,24 +364,24 @@ header {
 
 /*CARRITO DE COMPRAS*/
 
-.carrito{
-  .cont_carrito{
+.carrito {
+  .cont_carrito {
     margin-bottom: 2em;;
-    h2{
-      font-size:1.4em;
+    h2 {
+      font-size: 1.4em;
       text-transform: uppercase;
-      font-weight:700;
+      font-weight: 700;
       color: $gris_obscuro;
-      margin:0 0 2em 15px;
+      margin: 0 0 2em 15px;
     }
-    .item_carrito{
+    .item_carrito {
       border: 1px solid $gris-claro;
       border-bottom: 1px solid $gris_medio;
       position: relative;
       @extend .row;
-      padding:1em;
+      padding: 1em;
       margin: 0 4em;
-      h3{
+      h3 {
         margin: 0 0 .6em 0;
         text-transform: uppercase;
         font-weight: 500;
@@ -357,50 +389,50 @@ header {
         font-size: 1.2em;
         text-align: left;
       }
-      ul{
-        li{
-          margin-bottom:.4em;
+      ul {
+        li {
+          margin-bottom: .4em;
           color: $gris_obscuro;
-          &.cant{
+          &.cant {
           }
-          &.total{
+          &.total {
             text-transform: uppercase;
             color: $gris_obscuro;
-            span{
+            span {
               display: inline-block;
               vertical-align: top;
               text-transform: capitalize;
             }
           }
-          label,strong{
+          label, strong {
             color: $gris_obscuro;
           }
-          #cantidad{
+          #cantidad {
             display: inline-block;
             margin-left: 10px;
             width: 60px;
             //background: lighten($yellow,10%);
-            border:1px solid $gris_medio;
+            border: 1px solid $gris_medio;
             padding: 2px 10px;
           }
         }
       }
-      .caracteristicas{
+      .caracteristicas {
         padding-top: 2em;
       }
-      .cerrar{
+      .cerrar {
         position: absolute;
         right: 0;
         top: 0;
         border: none;
       }
     }
-    .total{
+    .total {
       background: $gris_claro;
       padding: 1em;
       margin: 0 4em;
 
-      h3{
+      h3 {
         margin-top: 0;
         font-weight: 500;
         font-size: 1.6em;
@@ -410,18 +442,19 @@ header {
 
   }
 }
-.contacto{
 
-  .cont_contacto{
+.contacto {
+
+  .cont_contacto {
     padding: 4em;
-    h2{
-      font-size:1.4em;
+    h2 {
+      font-size: 1.4em;
       text-transform: uppercase;
-      font-weight:700;
+      font-weight: 700;
       color: $gris_obscuro;
-      margin:0 0 2em 15px;
+      margin: 0 0 2em 15px;
     }
-    p{
+    p {
       text-align: center;
     }
   }
@@ -433,10 +466,10 @@ footer {
   @extend .row;
   padding: 1.6em 0;
   border-top: 1px solid $gris_medio;
-  margin:0 2em;
+  margin: 0 2em;
   .derechos {
     @extend .col-md-10;
-    p{
+    p {
       font-size: .8em;
       text-align: right;
     }
@@ -458,7 +491,6 @@ footer {
       height: 30px;
     }
   }
-
 
 }
 

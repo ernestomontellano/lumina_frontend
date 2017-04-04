@@ -10,5 +10,7 @@
       $rootScope.clicMenu = function (state) {
         $rootScope.cambiarPagina(state, {}, true);
       };
+     $rootScope.muestramenu=true;
+
     });
 })();
