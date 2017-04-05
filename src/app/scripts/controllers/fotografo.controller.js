@@ -9,6 +9,7 @@
       var parametros = {
         soporte: 'true',
         imagenes: 'true',
+        fotografos: 'true',
         tamanhos: 'true',
         etiquetas: 'true',
         comparaciones: [

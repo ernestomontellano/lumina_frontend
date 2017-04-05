@@ -18,11 +18,5 @@
             $log.debug('Ocurrió un error al intentar obtener los fotógrafos')
           }
         });
-      vm.mostrarFotografo = function(id){
-        var parametros = {
-          id: id
-        }
-        $rootScope.cambiarPagina('fotografo', parametros, true);
-      };
     });
 })();

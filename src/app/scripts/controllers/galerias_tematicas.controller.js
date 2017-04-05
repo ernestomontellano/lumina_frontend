@@ -19,16 +19,5 @@
             $log.debug('Ocurrió un error al intentar obtener las galerías')
           }
         });
-      vm.mostrarGaleria = function(id){
-        var parametros = {
-          id: id
-        }
-        $rootScope.cambiarPagina('galeria', parametros, true);
-      };
-
-
-
-    })
-   
-  ;
+    });
 })();

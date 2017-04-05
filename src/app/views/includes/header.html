@@ -15,21 +15,19 @@
           </li>
           <li><a ui-sref="carrito"><span
             class="glyphicon glyphicon-shopping-cart"></span> <span
-            class="badge">4</span></a></li>
+            class="badge">{{carroDeComprasCant}}</span></a></li>
           <li><a href=""><span class="glyphicon glyphicon-search"></span></a>
           </li>
         </ul>
       </nav>
     </div>
   </div>
-
   <div class="row main-menu" ng-if="muestra_cont">
       <nav class="navbar navbar-default navbar-right">
         <ul class="nav navbar-nav">
           <li><a href ng-click="clicMenu('inicio')">INICIO</a></li>
           <li><a href ng-click="clicMenu('fotografos')">FOTÓGRAFOS</a></li>
-          <li><a href ng-click="clicMenu('galerias')">GALERÍAS TEMÁTICAS</a>
-          </li>
+          <li><a href ng-click="clicMenu('galerias')">GALERÍAS TEMÁTICAS</a></li>
           <li><a href ng-click="clicMenu('carrito')">CARRITO DE COMPRAS</a></li>
           <li><a href ng-click="clicMenu('contacto')">CONTACTO</a></li>
         </ul>

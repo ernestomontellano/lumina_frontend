@@ -2,34 +2,41 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('CarritoComprasController', function () {
+    .controller('CarritoComprasController', function ($rootScope) {
       var vm = this;
-      vm.comprados = [
-        {nombre: "Ejemplo de fotografía"},
-        {nombre: "Otro Ejemplo"},
-        {nombre: "SDK-3234"}
-      ];
+      vm.confirmarCompra = function () {
+        $rootScope.carroDeCompras = new Array();
+        $rootScope.carroDeComprasCant = 0;
+        $rootScope.carroDeComprasBs = 0;
+        $rootScope.carroDeComprasSus = 0;
+      };
+      vm.eliminarelemento = function (indice) {
+        $rootScope.carroDeCompras.splice(indice, 1);
+      };
     })
-    .controller('CarritoComprasModalController', function ($rootScope, $log, $modalInstance, elemento) {
+    .controller('CarritoComprasModalController', function ($rootScope, $modalInstance, elemento) {
         var vm = this;
         vm.imagenCarro = elemento;
         vm.tamanhoTemp = '0';
         vm.elementoAgregado = 0;
-        $log.debug('imagenCarro', vm.imagenCarro);
-        var etiquetasTemp = '';
+        var etiquetasTemp = '<strong>Galerías:</strong> ';
         for (var e = 0; e < vm.imagenCarro.etiquetas.length; e++) {
           if (e > 0) {
             etiquetasTemp += ', ';
           }
-          etiquetasTemp += vm.imagenCarro.etiquetas[e].etiqueta
+          etiquetasTemp += '<a href ng-click="vmimagencarro.cerrarModalMostrarGaleria(' + vm.imagenCarro.etiquetas[e].id + ')">' + vm.imagenCarro.etiquetas[e].etiqueta + '</a>';
         }
+        var autorTemp = '<strong>Autor:</strong> <a href ng-click="vmimagencarro.cerrarModalMostrarFotografo(' + vm.imagenCarro.fotografo[0].id + ')">' + vm.imagenCarro.fotografo[0].nombre + '</a>';
         vm.carroCompra = {
           id: vm.imagenCarro.id,
           nombre: vm.imagenCarro.nombre,
           codigo: vm.imagenCarro.codigo,
+          descripcion: vm.imagenCarro.descripcion,
           imagen: vm.imagenCarro.imagen,
           etiquetas: etiquetasTemp,
-          fotografo: '',
+          fotografos_id: vm.imagenCarro.fotografo[0].id,
+          fotografo: vm.imagenCarro.fotografo[0].nombre,
+          fotografo_html: autorTemp,
           tamanhos_id: 0,
           tamanho: '',
           preciobs: 0,
@@ -39,7 +46,6 @@
           disponible: 0,
           cantidad: 1
         };
-        $log.debug('carroCompra', vm.carroCompra);
         vm.asignarImagenDisponible = function () {
           if (vm.tamanhoTemp != '0') {
             var temp = vm.tamanhoTemp.split('//');
@@ -86,12 +92,25 @@
             } else {
               $rootScope.carroDeCompras.push(vm.carroCompra);
             }
-            $log.debug($rootScope.carroDeCompras);
             vm.elementoAgregado = 1;
           }
         };
         vm.cerrarModal = function () {
           $modalInstance.close();
+        };
+        vm.cerrarModalMostrarGaleria = function (id) {
+          $modalInstance.close();
+          var parametros = {
+            id: id
+          }
+          $rootScope.cambiarPagina('galeria', parametros, true);
+        };
+        vm.cerrarModalMostrarFotografo = function (id) {
+          $modalInstance.close();
+          var parametros = {
+            id: id
+          }
+          $rootScope.cambiarPagina('fotografo', parametros, true);
         };
       }
     );
