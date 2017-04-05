@@ -7,10 +7,7 @@ angular
         return $http.get($rootScope.api + '/api/' + tabla);
       },
       visualizar: function (tabla, id) {
-        var parametros = {
-          'token': $rootScope.tk
-        };
-        return $http.get($rootScope.api + '/api/' + tabla + '/visualizar/' + id, parametros);
+        return $http.get($rootScope.api + '/api/' + tabla + '/visualizar/' + id);
       },
       filtrar: function (tabla, parametros) {
         return $http.post($rootScope.api + '/api/' + tabla + '/filtrar', parametros);
