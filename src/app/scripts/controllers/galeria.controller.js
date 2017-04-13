@@ -46,18 +46,18 @@
           "fotografia": "otra"
         }
       ];
-      vm.open = function (size) {
+      vm.open = function (size, imagen) {
         vm.modalInstance = $modal.open({
-          templateUrl: 'app/views/carrito_compras/carro_modal.html',
-          controller: 'CarritoComprasModalController',
-          controllerAs: 'vmModalCarro',
+          templateUrl: 'app/views/carrito_compras/carro_modal2.html',
+          controller: 'CarritoComprasModal2Controller',
+          controllerAs: 'vmimagencarro',
           size: size,
           resolve: {
-            items: function () {
-              return vm.items
+            elemento: function () {
+              return imagen;
             }
           }
-        })
+        });
       };
     });
 })();

@@ -41,10 +41,10 @@
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);
-            vm.etiquetadestacada = response.resultado.data[0].etiquetas_id;
+            vm.etiquetadestacada = response.resultado.data[0];
             var parametros3 = {
               comparaciones: [
-                {campo: 'id', operador: 'igual', dato: vm.etiquetadestacada}
+                {campo: 'id', operador: 'igual', dato: vm.etiquetadestacada.etiquetas_id}
               ]
             };
             TablesService.filtrar('etiquetas', parametros3)

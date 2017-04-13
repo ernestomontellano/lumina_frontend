@@ -6,17 +6,29 @@
       // $rootScope.api = 'http://localhost:8000';
       $rootScope.api = 'http://luminaapi.lumina.gallery';
       $rootScope.carroDeCompras = new Array();
-      $rootScope.carroDeComprasCant = 0;
-      $rootScope.carroDeComprasBs = 0;
-      $rootScope.carroDeComprasSus = 0;
+      $rootScope.carroDeComprasDatos = {
+        nombre: '',
+        pais: '',
+        ciudad: '',
+        direccion: '',
+        telefono: '',
+        infoadicional: '',
+        zona: 0,
+        elementos: 0,
+        bs: 0,
+        sus: 0
+      };
       $rootScope.$watchCollection('carroDeCompras', function () {
-        $rootScope.carroDeComprasCant = 0;
-        $rootScope.carroDeComprasBs = 0;
-        $rootScope.carroDeComprasSus = 0;
+        $log.debug('carroDeCompras', $rootScope.carroDeCompras);
+        $rootScope.carroDeComprasDatos = {
+          elementos: 0,
+          bs: 0,
+          sus: 0
+        };
         for (var t = 0; t < $rootScope.carroDeCompras.length; t++) {
-          $rootScope.carroDeComprasCant += $rootScope.carroDeCompras[t].cantidad;
-          $rootScope.carroDeComprasBs += $rootScope.carroDeCompras[t].totalbs;
-          $rootScope.carroDeComprasSus += $rootScope.carroDeCompras[t].totalsus;
+          $rootScope.carroDeComprasDatos.elementos += $rootScope.carroDeCompras[t].cantidad;
+          $rootScope.carroDeComprasDatos.bs += $rootScope.carroDeCompras[t].totalbs;
+          $rootScope.carroDeComprasDatos.sus += $rootScope.carroDeCompras[t].totalsus;
         }
       });
       $rootScope.cambiarPagina = function (state, params, reload) {

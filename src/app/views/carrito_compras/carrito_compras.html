@@ -7,9 +7,10 @@
         <img ng-src="{{api}}/{{elemento.imagen}}" alt="{{elemento.nombre}}" class="img-responsive">
       </div>
       <div class="col-md-6 caracteristicas">
-        <h3>{{elemento.nombre}} - {{elemento.codigo}}</h3>
+        <h3>{{elemento.nombre}}</h3>
         <ul class="list-unstyled">
           <li><strong>Autor: </strong><span> {{elemento.fotografo}}</span></li>
+          <li><strong>Soporte: </strong><span> {{elemento.soporte}}</span></li>
         </ul>
       </div>
       <div class="col-md-4 caracteristicas">
@@ -18,15 +19,56 @@
           <li><strong>Cantidad: </strong> <span>{{elemento.cantidad}}</span></li>
           <li><strong>Costo:</strong> <span>Bs. {{elemento.totalbs}} ($USD {{elemento.totalsus}})</span></li>
           <li>
-            <button class="btn btn-default cerrar" ng-click="vmcarrito.eliminarelemento($index)"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-default cerrar" ng-click="vmcarrito.eliminarelemento($index)"><span
+              class="glyphicon glyphicon-remove"></span></button>
           </li>
         </ul>
       </div>
     </div>
     <div class="total row">
       <div class="col-md-4 col-md-offset-8">
-        <h3>TOTAL: <strong>Bs. {{carroDeComprasBs}} ($USD {{carroDeComprasSus}})</strong></h3>
-        <button class="btn btn-success btn-lg btn-block" ng-click="vmcarrito.confirmarCompra()">Confirmar Compra</button>
+        <h3>TOTAL: <strong>Bs. {{carroDeComprasDatos.bs}} ($USD {{carroDeComprasDatos.sus}})</strong></h3>
+      </div>
+      <h2>Datos de la compra</h2>
+      <div class="">
+        <ul class="list-unstyled">
+          <li class="">
+            <label for="nombre">Nombre completo: </label>
+            <input id="nombre" type="text" ng-model="carroDeComprasDatos.nombre" placeholder="Nombre completo" ng-required="true">
+          </li>
+          <li class="">
+            <label for="pais">País: </label>
+            <input id="pais" type="text" ng-model="carroDeComprasDatos.pais" placeholder="País" ng-required="true">
+          </li>
+          <li class="">
+            <label for="ciudad">Ciudad: </label>
+            <input id="ciudad" type="text" ng-model="carroDeComprasDatos.ciudad" placeholder="Ciudad" ng-required="true">
+          </li>
+          <li class="">
+            <label for="direccion">Dirección: </label>
+            <input id="direccion" type="text" ng-model="carroDeComprasDatos.direccion" placeholder="Dirección" ng-required="true">
+          </li>
+          <li class="">
+            <label for="telefono">Teléfono: </label>
+            <input id="telefono" type="text" ng-model="carroDeComprasDatos.telefono" placeholder="Teléfono" ng-required="true">
+          </li>
+          <li class="">
+            <label for="infoadicional">Información adicional: </label>
+            <textarea id="infoadicional" ng-model="carroDeComprasDatos.infoadicional"
+                      placeholder="Información adicional" ng-required="true"></textarea>
+          </li>
+          <li class="">
+            <label for="zona">Zona: </label>
+            <select id="zona" ng-model="carroDeComprasDatos.zona" ng-required="true">
+              <option value="">Seleccione:</option>
+              <option value="{{zona.id}}" ng-repeat="zona in vmcarrito.zonas">{{zona.nombre}}</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-md-offset-8">
+        <button class="btn btn-success btn-lg btn-block" ng-click="vmcarrito.confirmarCompra()">Confirmar Compra
+        </button>
       </div>
     </div>
   </div>

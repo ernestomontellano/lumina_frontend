@@ -8,14 +8,13 @@
         </div>
         <div class="txt">
           <h2>{{vmfotografo.fotografo.nombre}}</h2>
-          <p class="material">{{vmfotografo.fotografo.soporte[0].soporte}}</p>
         </div>
       </div>
     </div>
     <div class="descripcion" ng-bind-html="vmfotografo.fotografo.biografia"></div>
   </div>
   <ul class="list-unstyled row galeria">
-    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md', imagen)">
+    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md', imagen, vmfotografo.fotografo.soporte[0].soporte)">
       <img ng-src="{{api}}/{{imagen.imagen}}" alt="{{imagen.nombre}}">
       <a ><span class="glyphicon glyphicon-shopping-cart"></span></a>
     </li>
