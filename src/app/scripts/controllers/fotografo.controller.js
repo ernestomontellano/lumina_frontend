@@ -25,7 +25,7 @@
             $log.debug('Ocurrió un error al intentar obtener el fotógrafo')
           }
         });
-      vm.open = function (size, imagen, soporte) {
+      vm.open = function (size, imagen) {
         vm.modalInstance = $modal.open({
           templateUrl: 'app/views/carrito_compras/carro_modal.html',
           controller: 'CarritoComprasModalController',
@@ -34,9 +34,6 @@
           resolve: {
             elemento: function () {
               return imagen;
-            },
-            soporte: function () {
-              return soporte;
             }
           }
         });

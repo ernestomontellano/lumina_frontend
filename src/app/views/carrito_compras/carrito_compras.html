@@ -4,11 +4,11 @@
     <h2>Carrito de compras</h2>
     <div class="item_carrito" ng-repeat="elemento in carroDeCompras">
       <div class="col-md-2">
-        <img ng-src="{{api}}/{{elemento.imagen}}" alt="{{elemento.nombre}}" class="img-responsive">
+        <img ng-src="{{api}}/{{elemento.imagen}}" alt="{{elemento.codigo}}" class="img-responsive">
       </div>
       <div class="col-md-6 caracteristicas">
-        <h3>{{elemento.nombre}}</h3>
         <ul class="list-unstyled">
+          <li><strong>Código: </strong><span> {{elemento.codigo}}</span></li>
           <li><strong>Autor: </strong><span> {{elemento.fotografo}}</span></li>
           <li><strong>Soporte: </strong><span> {{elemento.soporte}}</span></li>
         </ul>
@@ -25,7 +25,10 @@
         </ul>
       </div>
     </div>
-    <div class="total row">
+    <div class="total row" ng-if="carroDeCompras.length==0">
+      El carro de compras se encuentra vacío...
+    </div>
+    <div class="total row" ng-if="carroDeCompras.length>0">
       <div class="col-md-4 col-md-offset-8">
         <h3>TOTAL: <strong>Bs. {{carroDeComprasDatos.bs}} ($USD {{carroDeComprasDatos.sus}})</strong></h3>
       </div>
@@ -34,7 +37,8 @@
         <ul class="list-unstyled">
           <li class="">
             <label for="nombre">Nombre completo: </label>
-            <input id="nombre" type="text" ng-model="carroDeComprasDatos.nombre" placeholder="Nombre completo" ng-required="true">
+            <input id="nombre" type="text" ng-model="carroDeComprasDatos.nombre" placeholder="Nombre completo"
+                   ng-required="true">
           </li>
           <li class="">
             <label for="pais">País: </label>
@@ -42,15 +46,18 @@
           </li>
           <li class="">
             <label for="ciudad">Ciudad: </label>
-            <input id="ciudad" type="text" ng-model="carroDeComprasDatos.ciudad" placeholder="Ciudad" ng-required="true">
+            <input id="ciudad" type="text" ng-model="carroDeComprasDatos.ciudad" placeholder="Ciudad"
+                   ng-required="true">
           </li>
           <li class="">
             <label for="direccion">Dirección: </label>
-            <input id="direccion" type="text" ng-model="carroDeComprasDatos.direccion" placeholder="Dirección" ng-required="true">
+            <input id="direccion" type="text" ng-model="carroDeComprasDatos.direccion" placeholder="Dirección"
+                   ng-required="true">
           </li>
           <li class="">
             <label for="telefono">Teléfono: </label>
-            <input id="telefono" type="text" ng-model="carroDeComprasDatos.telefono" placeholder="Teléfono" ng-required="true">
+            <input id="telefono" type="text" ng-model="carroDeComprasDatos.telefono" placeholder="Teléfono"
+                   ng-required="true">
           </li>
           <li class="">
             <label for="infoadicional">Información adicional: </label>

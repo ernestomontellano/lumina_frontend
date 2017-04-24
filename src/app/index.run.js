@@ -2,22 +2,30 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .run(function ($rootScope, $state, $log, $window) {
+    .run(function ($rootScope, $state, $log, $window, localStorageService) {
       // $rootScope.api = 'http://localhost:8000';
       $rootScope.api = 'http://luminaapi.lumina.gallery';
       $rootScope.carroDeCompras = new Array();
-      $rootScope.carroDeComprasDatos = {
-        nombre: '',
-        pais: '',
-        ciudad: '',
-        direccion: '',
-        telefono: '',
-        infoadicional: '',
-        zona: 0,
-        elementos: 0,
-        bs: 0,
-        sus: 0
-      };
+      $rootScope.carroDeComprasDatos = new Array();
+      if (JSON.parse(localStorageService.get("cart"))) {
+        $rootScope.carroDeCompras = JSON.parse(localStorageService.get("cart"));
+        $rootScope.carroDeComprasDatos = JSON.parse(localStorageService.get("cartdata"));
+      } else {
+        $rootScope.carroDeComprasDatos = {
+          nombre: '',
+          pais: '',
+          ciudad: '',
+          direccion: '',
+          telefono: '',
+          infoadicional: '',
+          zona: 0,
+          elementos: 0,
+          bs: 0,
+          sus: 0
+        };
+        localStorageService.set("cart", JSON.stringify($rootScope.carroDeCompras));
+        localStorageService.set("cartdata", JSON.stringify($rootScope.carroDeComprasDatos));
+      }
       $rootScope.$watchCollection('carroDeCompras', function () {
         $log.debug('carroDeCompras', $rootScope.carroDeCompras);
         $rootScope.carroDeComprasDatos = {
@@ -30,6 +38,8 @@
           $rootScope.carroDeComprasDatos.bs += $rootScope.carroDeCompras[t].totalbs;
           $rootScope.carroDeComprasDatos.sus += $rootScope.carroDeCompras[t].totalsus;
         }
+        localStorageService.set("cart", JSON.stringify($rootScope.carroDeCompras));
+        localStorageService.set("cartdata", JSON.stringify($rootScope.carroDeComprasDatos));
       });
       $rootScope.cambiarPagina = function (state, params, reload) {
         $state.go(state, params, reload);

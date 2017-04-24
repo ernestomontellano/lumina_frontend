@@ -48,8 +48,8 @@
       ];
       vm.open = function (size, imagen) {
         vm.modalInstance = $modal.open({
-          templateUrl: 'app/views/carrito_compras/carro_modal2.html',
-          controller: 'CarritoComprasModal2Controller',
+          templateUrl: 'app/views/carrito_compras/carro_modal.html',
+          controller: 'CarritoComprasModalController',
           controllerAs: 'vmimagencarro',
           size: size,
           resolve: {

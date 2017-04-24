@@ -8,14 +8,13 @@
   <ul class="list-unstyled">
     <li class="row">
       <div class="col-md-6">
-        <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.nombre}}"
+        <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.codigo}}"
              class="img-responsive">
       </div>
       <div class="col-md-6">
-        <h3>{{vmimagencarro.carroCompra.nombre}}</h3>
         <ul class="list-unstyled">
+          <li><strong>Código: </strong>{{vmimagencarro.carroCompra.codigo}}</li>
           <li render-html="vmimagencarro.carroCompra.fotografo_html"></li>
-          <li><strong>Descripción:</strong> {{vmimagencarro.carroCompra.descripcion}}</li>
           <li render-html="vmimagencarro.carroCompra.etiquetas"></li>
           <li class="disp" ng-if="(vmimagencarro.carroCompra.disponible==0)">
             <strong>Disponible: </strong>Agotada
