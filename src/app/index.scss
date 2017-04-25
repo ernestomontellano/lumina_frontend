@@ -262,16 +262,13 @@ header {
   .ficha {
     @extend .row;
     .datos_tecnicos {
-      @extend .col-md-5;
+      @extend .col-md-2;
       .cont_datos_tecnicos {
         @extend .row;
-        @extend .well;
-        background: $gris_claro;
         .img {
-          @extend .col-md-4;
+          @extend .col-md-12;
         }
         .txt {
-          @extend .col-md-8;
           h2 {
             font-size: 1.2em;
             text-transform: uppercase;
@@ -294,7 +291,10 @@ header {
       }
     }
     .descripcion {
-      @extend .col-md-7;
+      @extend .col-md-10;
+      h2 {
+        margin-top: 0;
+      }
       p {
         margin-bottom: .6em;
       }
@@ -359,7 +359,7 @@ header {
         margin-top: 2em;
       }
       &.total {
-        font-size: 1.2em;
+        font-size: 1em;
         text-transform: uppercase;
         margin-top: 1em;
         color: $gris_obscuro;
@@ -501,7 +501,11 @@ header {
         color: $gris_obscuro;
       }
     }
-
+      .form_envio{
+        h2{
+          margin:2em 0 1em 0;
+        }
+      }
   }
 }
 

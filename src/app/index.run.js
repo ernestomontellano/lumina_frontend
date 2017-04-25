@@ -46,7 +46,7 @@
       };
       $rootScope.clicMenu = function (state) {
         $rootScope.cambiarPagina(state, {}, true);
-        $rootScope.muestra_cont = false;
+     //   $rootScope.muestra_cont = false;
       };
       $rootScope.mostrarFotografo = function (id) {
         var parametros = {
@@ -61,15 +61,16 @@
         $rootScope.cambiarPagina('galeria', parametros, true);
       };
       $rootScope.flg = 0;
-      angular.element(window).resize(function () {
+     /* angular.element(window).resize(function () {
         if ($window.innerWidth < 768) {
           $log.debug("es menor");
-          $rootScope.muestra_cont = false;
+         // $rootScope.muestra_cont = false;
         } else {
           $log.debug("es mayor");
           $rootScope.muestra_cont = true;
         }
-      });
+      });*/
+      $rootScope.muestra_cont=true;
       $rootScope.muestraMenu = function () {
         if ($rootScope.flg == 0) {
           $rootScope.flg = 1;
