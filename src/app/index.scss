@@ -11,6 +11,7 @@ $gris_obscuro: #333;
 $gris_claro: #ddd;
 $rojo: #F0193C;
 $yellow: #dbd68d;
+$azul_iconica: #003D7C;
 
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
@@ -81,24 +82,7 @@ header {
 
   .main-menu {
     margin: 0;
-    &.ng-leave {
-      transition: 0.5s linear all;
-      opacity: 1;
 
-    }
-    &.ng-leave.ng-leave-active {
-      opacity: 0;
-    }
-    /* The starting CSS styles for the enter animation */
-    &.ng-enter {
-      transition: 0.5s linear all;
-      opacity: 0;
-    }
-
-    /* The finishing CSS styles for the enter animation */
-    &.ng-enter.ng-enter-active {
-      opacity: 1;
-    }
     @media (max-width: $screen-xs-max) {
       clear: both;
     }
@@ -130,11 +114,12 @@ header {
     @extend .text-hide;
     height: 70px;
     width: 200px;
+    margin-left:15px;
     @media (max-width: $screen-sm-max) {
       float: left;
-      width: 84px;
-      height: 32px;
-      margin: 10px 0;
+      width: 100px;
+      height: 39px;
+      margin: 5px 0;
     }
 
   }
@@ -558,7 +543,7 @@ footer {
       p {
       font-size: .8em;
       text-transform: uppercase;
-      color: $gris_obscuro;
+      color: $azul_iconica;
       font-weight: 700;
       margin-bottom: 1em;
     }
