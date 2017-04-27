@@ -12,6 +12,7 @@ $gris_claro: #ddd;
 $rojo: #F0193C;
 $yellow: #dbd68d;
 $azul_iconica: #003D7C;
+$azul_iconica2: #004282;
 
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
@@ -53,6 +54,7 @@ header {
         border: 0;
         background: none;
         margin-right: 0;
+        margin-bottom:30px;
 
         @media (max-width: $screen-xs-max) {
           margin-bottom: 0;
@@ -90,6 +92,7 @@ header {
       border: 0;
       background: none;
       margin-right: 20%;
+      margin-bottom:0;
       @media (max-width: $screen-xs-max) {
         position: static;
         margin-bottom: 0;
@@ -129,76 +132,88 @@ header {
 
 .galeria_home {
   @extend .row;
-
+  position: relative;
     .carousel-indicators li {
     visibility: hidden;
   }
 
-}
+  .slogan {
+    text-align: center;
+    font-style: italic;
+    margin: 1.6em;
+    position: absolute;
+    bottom:10px;
+    right:20px;
 
-.slogan {
-  text-align: center;
-  font-style: italic;
-  margin: 1.6em;
-  color: lighten($gris_lumina, 20%);
-  @media (max-width: $screen-xs-max) {
-    margin: .6em 0.4em;
-    font-size: 1.8em;
-  }
-}
-
-.destacado_home {
-  margin-bottom: 4em;
-  @media (max-width: $screen-xs-max) {
-    margin-bottom: 2em;
-  }
-    @extend .row;
-  .txt_destacado_home {
-    @extend .col-md-5;
-    @extend .col-md-offset-2;
-
-    text-align: right;
+    color: white;
+    -webkit-text-shadow: 0 0 5px #000;
+    -moz-text-shadow: 0 0 5px #000;
+    -ms-text-shadow: 0 0 5px #000;
+    -o-text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 5px #000;
     @media (max-width: $screen-xs-max) {
-      text-align: left;
+      margin: .6em 0.4em;
+      font-size: 1.8em;
     }
-    .gal_destacada {
-      text-transform: uppercase;
-      font-size: 1em;
-      &::after {
-        content: '';
-        display: inline-block;
-        width: .8em;
-        height: .8em;
-        margin-left: .6em;
-        border-radius: 50%;
-        background-color: $rojo;
-      }
-    }
-    h3 {
-      color: $gris_obscuro;
-      text-transform: uppercase;
-      font-size: 1.4em;
-      font-weight: 700;
-      @media (max-width: $screen-xs-max) {
-        font-size:1.2em;
-        margin-top: 0;
-        line-height:1.4em;
-      }
-    }
-    .btn_destacado_home {
-      @extend .btn;
-      @extend .btn-default;
-      @media (max-width:$screen-xs-max) {
-        display: block;
-        margin:1em 0 ;
-        padding: 1em;
-      }
-      }
-  }
-  .img_destacado_home {
-    @extend .col-md-5;
   }
 }
+
+.cont_destacados{
+@extend .row;
+  .destacado_home {
+    margin-top: 2em;
+    margin-bottom: 4em;
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 2em;
+    }
+    @extend .row;
+    .txt_destacado_home {
+      @extend .col-md-7;
+
+      text-align: right;
+      @media (max-width: $screen-xs-max) {
+        text-align: left;
+      }
+      .gal_destacada {
+        text-transform: uppercase;
+        font-size: 1em;
+
+      }
+      h3 {
+        color: $gris_obscuro;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-weight: 700;
+        @media (max-width: $screen-xs-max) {
+          font-size:1.2em;
+          margin-top: 0;
+          line-height:1.4em;
+        }
+      }
+      .btn_destacado_home {
+        @extend .btn;
+        @extend .btn-default;
+        @media (max-width:$screen-xs-max) {
+          display: block;
+          margin:1em 0 ;
+          padding: 1em;
+        }
+      }
+    }
+    .img_destacado_home {
+      @extend .col-md-5;
+      img{
+        max-height:300px;
+      }
+    }
+  }
+
+
+
+}
+
 
 /* FOTÓGRAFOS */
 
@@ -218,8 +233,9 @@ header {
         @extend .col-md-3;
         .fotografo_thumbnail {
           img {
-            max-height: 208px;
             @extend .img-responsive;
+            max-height: 208px;
+
           }
           .caption {
             margin: 1em 0;
@@ -303,12 +319,9 @@ header {
   float: left;
   max-height: 208px;
   margin: 10px;
-  a {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 1.2em;
-    color: $rojo;
+
+  img{
+    max-height:210px;
   }
 }
 
@@ -515,7 +528,7 @@ header {
 
 footer {
   @extend .row;
-  padding: 1.6em 0;
+  padding: 1.2em 0;
   border-top: 1px solid $gris_medio;
   margin: 0 2em;
   @media (max-width: $screen-xs-max) {
@@ -527,12 +540,19 @@ footer {
       @media (max-width: $screen-xs-max) {
         padding: 0;
       }
+      address{
+        margin: 0;
+      }
         p {
       font-size: .8em;
       text-align: right;
       @media (max-width: $screen-xs-max) {
         text-align: center;
       }
+          a{
+            color:$azul_iconica2;
+
+          }
       }
   }
   .iconica {
@@ -542,10 +562,9 @@ footer {
     }
       p {
       font-size: .8em;
-      text-transform: uppercase;
-      color: $azul_iconica;
-      font-weight: 700;
-      margin-bottom: 1em;
+      color: $azul_iconica2;
+      font-weight: 300;
+      margin-bottom: .6em;
     }
     .logo_iconica {
       display: block;
