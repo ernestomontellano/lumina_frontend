@@ -46,15 +46,22 @@
                      ng-required="true">
             </li>
             <li class="form-group">
+              <label for="ciudad">Ciudad: </label>
+              <input id="ciudad" class="form-control" type="text" ng-model="carroDeComprasDatos.ciudad"
+                     placeholder="Ciudad"
+                     ng-required="true">
+            </li>
+            <li class="form-group">
               <label for="pais">País: </label>
               <input id="pais" class="form-control" type="text" ng-model="carroDeComprasDatos.pais" placeholder="País"
                      ng-required="true">
             </li>
             <li class="form-group">
-              <label for="ciudad">Ciudad: </label>
-              <input id="ciudad" class="form-control" type="text" ng-model="carroDeComprasDatos.ciudad"
-                     placeholder="Ciudad"
-                     ng-required="true">
+              <label for="zona">Zona: </label>
+              <select id="zona" class="form-control" ng-model="carroDeComprasDatos.zona" ng-required="true">
+                <option value="">Seleccione:</option>
+                <option value="{{zona.id}}" ng-repeat="zona in vmcarrito.zonas">{{zona.nombre}}</option>
+              </select>
             </li>
             <li class="form-group">
               <label for="direccion">Dirección: </label>
@@ -69,17 +76,17 @@
                      ng-required="true">
             </li>
             <li class="form-group">
+              <label for="telefono">Email: </label>
+              <input id="email" class="form-control" type="email"
+                     placeholder="Email"
+                     ng-required="true">
+            </li>
+            <li class="form-group">
               <label for="infoadicional">Información adicional: </label>
               <textarea id="infoadicional" class="form-control" rows="3" ng-model="carroDeComprasDatos.infoadicional"
                         placeholder="Información adicional" ng-required="true"></textarea>
             </li>
-            <li class="form-group">
-              <label for="zona">Zona: </label>
-              <select id="zona" class="form-control" ng-model="carroDeComprasDatos.zona" ng-required="true">
-                <option value="">Seleccione:</option>
-                <option value="{{zona.id}}" ng-repeat="zona in vmcarrito.zonas">{{zona.nombre}}</option>
-              </select>
-            </li>
+
           </ul>
         </div>
         <div class="col-md-6 col-md-offset-6">

@@ -5,11 +5,13 @@
     <ul class="list-unstyled lista_fotografos">
       <li ng-repeat="fotografs in vmfotografos.fotografos">
         <div class="fotografo_thumbnail">
-          <img ng-src="{{api}}/{{fotografs.imagen}}" alt="{{fotografs.nombre}}">
+          <img ng-src="{{api}}/{{fotografs.imagen}}" ng-click="mostrarFotografo(fotografs.id)" alt="{{fotografs.nombre}}">
           <div class="caption">
             <p class="nombre">
               {{fotografs.nombre}}
             </p>
+            <div ng-bind-html="fotografs.biografia"></div>
+
             <p class="ver_cat">
               <a href ng-click="mostrarFotografo(fotografs.id)">
                 <span class="glyphicon glyphicon-chevron-right"></span>

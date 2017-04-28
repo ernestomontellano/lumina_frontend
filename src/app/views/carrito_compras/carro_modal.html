@@ -2,57 +2,63 @@
   <button type="button" class="close" ng-click="vmimagencarro.cerrarModal()" aria-label="Close"><span
     aria-hidden="true">&times;</span>
   </button>
-  <h3 class="modal-title" id="modal-title">INFORMACIÓN DE LA FOTOGRAFÍA</h3>
 </div>
 <div class="modal-body" id="modal-body">
   <ul class="list-unstyled">
     <li class="row">
-      <div class="col-md-6">
-        <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.codigo}}"
-             class="img-responsive">
-      </div>
-      <div class="col-md-6">
-        <ul class="list-unstyled">
-          <li><strong>Código: </strong>{{vmimagencarro.carroCompra.codigo}}</li>
-          <li render-html="vmimagencarro.carroCompra.fotografo_html"></li>
-          <li render-html="vmimagencarro.carroCompra.etiquetas"></li>
-          <li class="disp" ng-if="(vmimagencarro.carroCompra.disponible==0)">
-            <strong>Disponible: </strong>Agotada
-          </li>
-          <li class="disp" ng-if="(vmimagencarro.carroCompra.disponible==1)">
-            <strong>Disponible: </strong>{{vmimagencarro.carroCompra.disponible}} fotografía
-          </li>
-          <li class="disp" ng-if="(vmimagencarro.carroCompra.disponible>1)">
-            <strong>Disponible: </strong>{{vmimagencarro.carroCompra.disponible}} fotografías
-          </li>
-          <li><strong>Soporte:</strong> {{vmimagencarro.carroCompra.soporte}}</li>
-          <li class="cant" ng-if="vmimagencarro.elementoAgregado==0">
-            <input id="cantidad" type="hidden" ng-model="vmimagencarro.carroCompra.cantidad" ng-value="1">
-          </li>
-          <li ng-if="vmimagencarro.elementoAgregado==0">
-            <label for="size">Tamaño: </label>
-            <select name="size" id="size" ng-required="true" ng-model="vmimagencarro.tamanhoTemp"
-                    ng-change="vmimagencarro.asignarImagenDisponible()">
-              <option value="0">Seleccione:</option>
-              <option
-                value="{{tamanho.id}}//{{tamanho.tamanho}}//{{tamanho.preciobs}}//{{tamanho.preciosus}}"
-                ng-repeat="tamanho in vmimagencarro.imagenCarro.tamanhos">{{tamanho.tamanho}}
-              </option>
-            </select>
-          </li>
-          <li class="total" ng-if="(vmimagencarro.carroCompra.disponible>=1)&&(vmimagencarro.elementoAgregado==0)">
-            <strong>Costo Total:</strong> <span>Bs. {{vmimagencarro.carroCompra.totalbs}}
-            <br>$USD {{vmimagencarro.carroCompra.totalsus}}</span>
-          </li>
-          <li ng-if="((vmimagencarro.carroCompra.totalbs>0)&&(vmimagencarro.elementoAgregado==0))">
-            <button class="btn btn-success" ng-click="vmimagencarro.agregarAlCarro()"><span
-              class="glyphicon glyphicon-shopping-cart"></span> Añadir a las fotografías elegidas
-            </button>
-          </li>
-          <li ng-if="vmimagencarro.elementoAgregado==1">
-            <p><strong>Elemento agregado a las Fotografías Elegidas</strong></p>
-          </li>
-        </ul>
+      <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.codigo}}"
+           class="img-responsive img_detalle">
+
+      <div class="col-md-12 detalles">
+        <div class="row">
+          <div class="col-md-6 col-sm-6"><p><strong>Código: </strong>{{vmimagencarro.carroCompra.codigo}}</p>
+            <p render-html="vmimagencarro.carroCompra.fotografo_html"></p>
+            <p class="disp" ng-if="(vmimagencarro.carroCompra.disponible==0)">
+              <strong>Disponible: </strong>Agotada
+            </p>
+            <p class="disp" ng-if="(vmimagencarro.carroCompra.disponible==1)">
+              <strong>Disponible: </strong>{{vmimagencarro.carroCompra.disponible}} copia
+            </p>
+            <p class="disp" ng-if="(vmimagencarro.carroCompra.disponible>1)">
+              <strong>Disponible: </strong>{{vmimagencarro.carroCompra.disponible}} copias
+            </p>
+            <div ng-if="vmimagencarro.elementoAgregado==0">
+              <label for="size">Tamaño: </label>
+              <select name="size" id="size" ng-required="true" ng-model="vmimagencarro.tamanhoTemp"
+                      ng-change="vmimagencarro.asignarImagenDisponible()">
+                <option value="0">Seleccione:</option>
+                <option
+                  value="{{tamanho.id}}//{{tamanho.tamanho}}//{{tamanho.preciobs}}//{{tamanho.preciosus}}"
+                  ng-repeat="tamanho in vmimagencarro.imagenCarro.tamanhos">{{tamanho.tamanho}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6"><p><strong>Soporte:</strong> {{vmimagencarro.carroCompra.soporte}}</p>
+            <p class="cant" ng-if="vmimagencarro.elementoAgregado==0">
+              <input id="cantidad" type="hidden" ng-model="vmimagencarro.carroCompra.cantidad" ng-value="1">
+            </p>
+            <p render-html="vmimagencarro.carroCompra.etiquetas"></p>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+
+            <div class="total" ng-if="(vmimagencarro.carroCompra.disponible>=1)&&(vmimagencarro.elementoAgregado==0)">
+              <strong>PRECIO:</strong> <span>Bs. {{vmimagencarro.carroCompra.totalbs}}
+                               <br>$us {{vmimagencarro.carroCompra.totalsus}}</span>
+            </div>
+            <div ng-if="((vmimagencarro.carroCompra.totalbs>0)&&(vmimagencarro.elementoAgregado==0))">
+              <button class="btn btn-success" ng-click="vmimagencarro.agregarAlCarro()"><span
+                class="glyphicon glyphicon-shopping-cart"></span> Añadir a las fotografías elegidas
+              </button>
+            </div>
+            <div ng-if="vmimagencarro.elementoAgregado==1">
+              <p><strong>Elemento agregado a las Fotografías Elegidas</strong></p>
+            </div>
+          </div>
+
+
+        </div>
       </div>
     </li>
   </ul>

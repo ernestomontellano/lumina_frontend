@@ -220,7 +220,7 @@ header {
 .fotografos {
   .cont_fotografos {
     @extend .row;
-    margin: 0 20px;
+    margin: 0 4px;
     h2 {
       font-size: 1.4em;
       text-transform: uppercase;
@@ -230,23 +230,25 @@ header {
     }
     .lista_fotografos {
       li {
-        @extend .col-md-3;
+        @extend .row;
+        margin:0 0 30px 0;
         .fotografo_thumbnail {
           img {
             @extend .img-responsive;
-            max-height: 208px;
+           // max-height: 208px;
+            @extend .col-md-2;
 
           }
           .caption {
+            @extend .col-md-7;
             margin: 1em 0;
-            width: 208px;
             p.nombre {
               text-transform: uppercase;
               font-size: 1.1em;
               color: $gris_obscuro;
             }
             p.ver_cat {
-              text-align: right;
+              text-align: left;
               a {
                 color: $rojo;
               }
@@ -322,6 +324,9 @@ header {
 
   img{
     max-height:210px;
+    @media (max-width:$screen-sm-min){
+      max-width:100%;
+    }
   }
 }
 
@@ -342,6 +347,7 @@ header {
 }
 
 .modal-body {
+  padding: 0 15px;
   h3 {
     margin: 0 0 .6em 0;
     text-transform: uppercase;
@@ -365,6 +371,15 @@ header {
           display: inline-block;
           vertical-align: top;
           text-transform: capitalize;
+        }
+      }
+      .img_detalle{
+        width:100%;
+      }
+      .detalles{
+        margin-top: 20px;
+        p{
+          margin-bottom: 5px;
         }
       }
       label, strong {
@@ -399,12 +414,14 @@ header {
       margin: 2em;
       li {
         @extend .col-md-4;
+        margin-bottom:15px;
         a {
           display: block;
           background: $gris_claro;
           border: 1px sold $gris-medio;
           padding: 6em 4em;
           color: $gris_obscuro;
+
           &:hover {
             background: $gris-medio;
             text-decoration: none;
@@ -510,16 +527,16 @@ header {
 .contacto {
 
   .cont_contacto {
-    padding: 4em;
+    padding: 15px;
     h2 {
       font-size: 1.4em;
       text-transform: uppercase;
       font-weight: 700;
       color: $gris_obscuro;
-      margin: 0 0 2em 15px;
+      margin: 0 0 2em 0;
     }
     p {
-      text-align: center;
+      text-align: left;
     }
   }
 }
