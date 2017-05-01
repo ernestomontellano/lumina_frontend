@@ -46,7 +46,9 @@
       };
       $rootScope.clicMenu = function (state) {
         $rootScope.cambiarPagina(state, {}, true);
-     //   $rootScope.muestra_cont = false;
+      };
+      $rootScope.buscar = function (criterio) {
+        $rootScope.cambiarPagina('busqueda', {criterio: criterio}, true);
       };
       $rootScope.mostrarFotografo = function (id) {
         var parametros = {

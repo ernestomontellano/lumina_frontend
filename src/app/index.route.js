@@ -40,6 +40,12 @@
           controller: 'CarritoComprasController',
           controllerAs: 'vmcarrito'
         })
+        .state('busqueda', {
+          url: '/busqueda/:criterio',
+          templateUrl: 'app/views/busqueda/busqueda.html',
+          controller: 'BusquedaController',
+          controllerAs: 'vmbusqueda'
+        })
         .state('contacto', {
           url: '/contacto',
           templateUrl: 'app/views/contacto/contacto.html',

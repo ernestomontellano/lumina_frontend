@@ -1,0 +1,27 @@
+<div class="container busqueda">
+  <ng-include src="'app/views/includes/header.html'"></ng-include>
+  <div class="cont_busqueda">
+    <h2>Criterio de búsqueda: {{vmbusqueda.criterio}}</h2>
+    <div ng-if="vmbusqueda.haycriterio">
+      <ul>
+        <li ng-repeat="resultado in vmbusqueda.resultados">
+          <p ng-if="resultado.tipo=='Fotógrafo'">
+            <strong>{{resultado.tipo}}: </strong>
+            <a href ng-click="mostrarFotografo(resultado.id)">{{resultado.nombre}}</a>
+          </p>
+          <p ng-if="resultado.tipo=='Galería'">
+            <strong>{{resultado.tipo}}: </strong>
+            <a href ng-click="mostrarGaleria(resultado.id)">{{resultado.nombre}}</a>
+          </p>
+        </li>
+        <p ng-if="vmbusqueda.buscando">Buscando coincidencias...</p>
+        <p ng-if="vmbusqueda.numerores>0">{{vmbusqueda.numerores}} coincidencia(s) encontrada(s).</p>
+        <p ng-if="vmbusqueda.numerores==0 && !vmbusqueda.buscando">No se encontraron coincidencias con el criterio de búsqueda introducido.</p>
+      </ul>
+    </div>
+    <div ng-if="!vmbusqueda.haycriterio">
+      <p>Debe introducir un criterio de búsqueda.</p>
+    </div>
+  </div>
+  <ng-include src="'app/views/includes/footer.html'"></ng-include>
+</div>

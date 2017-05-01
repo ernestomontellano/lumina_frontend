@@ -54,7 +54,7 @@ header {
         border: 0;
         background: none;
         margin-right: 0;
-        margin-bottom:30px;
+        margin-bottom: 30px;
 
         @media (max-width: $screen-xs-max) {
           margin-bottom: 0;
@@ -92,7 +92,7 @@ header {
       border: 0;
       background: none;
       margin-right: 20%;
-      margin-bottom:0;
+      margin-bottom: 0;
       @media (max-width: $screen-xs-max) {
         position: static;
         margin-bottom: 0;
@@ -117,7 +117,7 @@ header {
     @extend .text-hide;
     height: 70px;
     width: 200px;
-    margin-left:15px;
+    margin-left: 15px;
     @media (max-width: $screen-sm-max) {
       float: left;
       width: 100px;
@@ -133,7 +133,7 @@ header {
 .galeria_home {
   @extend .row;
   position: relative;
-    .carousel-indicators li {
+  .carousel-indicators li {
     visibility: hidden;
   }
 
@@ -142,8 +142,8 @@ header {
     font-style: italic;
     margin: 1.6em;
     position: absolute;
-    bottom:10px;
-    right:20px;
+    bottom: 10px;
+    right: 20px;
 
     color: white;
     -webkit-text-shadow: 0 0 5px #000;
@@ -158,8 +158,8 @@ header {
   }
 }
 
-.cont_destacados{
-@extend .row;
+.cont_destacados {
+  @extend .row;
   .destacado_home {
     margin-top: 2em;
     margin-bottom: 4em;
@@ -187,33 +187,30 @@ header {
         font-size: 1.4em;
         font-weight: 700;
         @media (max-width: $screen-xs-max) {
-          font-size:1.2em;
+          font-size: 1.2em;
           margin-top: 0;
-          line-height:1.4em;
+          line-height: 1.4em;
         }
       }
       .btn_destacado_home {
         @extend .btn;
         @extend .btn-default;
-        @media (max-width:$screen-xs-max) {
+        @media (max-width: $screen-xs-max) {
           display: block;
-          margin:1em 0 ;
+          margin: 1em 0;
           padding: 1em;
         }
       }
     }
     .img_destacado_home {
       @extend .col-md-5;
-      img{
-        max-height:300px;
+      img {
+        max-height: 300px;
       }
     }
   }
 
-
-
 }
-
 
 /* FOTÓGRAFOS */
 
@@ -231,11 +228,11 @@ header {
     .lista_fotografos {
       li {
         @extend .row;
-        margin:0 0 30px 0;
+        margin: 0 0 30px 0;
         .fotografo_thumbnail {
           img {
             @extend .img-responsive;
-           // max-height: 208px;
+            // max-height: 208px;
             @extend .col-md-2;
 
           }
@@ -322,10 +319,10 @@ header {
   max-height: 208px;
   margin: 10px;
 
-  img{
-    max-height:210px;
-    @media (max-width:$screen-sm-min){
-      max-width:100%;
+  img {
+    max-height: 210px;
+    @media (max-width: $screen-sm-min) {
+      max-width: 100%;
     }
   }
 }
@@ -373,12 +370,12 @@ header {
           text-transform: capitalize;
         }
       }
-      .img_detalle{
-        width:100%;
+      .img_detalle {
+        width: 100%;
       }
-      .detalles{
+      .detalles {
         margin-top: 20px;
-        p{
+        p {
           margin-bottom: 5px;
         }
       }
@@ -414,14 +411,12 @@ header {
       margin: 2em;
       li {
         @extend .col-md-4;
-        margin-bottom:15px;
+        margin-bottom: 15px;
         a {
           display: block;
-          background: $gris_claro;
           border: 1px sold $gris-medio;
           padding: 6em 4em;
-          color: $gris_obscuro;
-
+          color: $gris_claro;
           &:hover {
             background: $gris-medio;
             text-decoration: none;
@@ -516,11 +511,11 @@ header {
         color: $gris_obscuro;
       }
     }
-      .form_envio{
-        h2{
-          margin:2em 0 1em 0;
-        }
+    .form_envio {
+      h2 {
+        margin: 2em 0 1em 0;
       }
+    }
   }
 }
 
@@ -552,32 +547,32 @@ footer {
     margin: 0;
     padding: 2em 0;
   }
-    .derechos {
+  .derechos {
     @extend .col-md-10;
-      @media (max-width: $screen-xs-max) {
-        padding: 0;
-      }
-      address{
-        margin: 0;
-      }
-        p {
+    @media (max-width: $screen-xs-max) {
+      padding: 0;
+    }
+    address {
+      margin: 0;
+    }
+    p {
       font-size: .8em;
       text-align: right;
       @media (max-width: $screen-xs-max) {
         text-align: center;
       }
-          a{
-            color:$azul_iconica2;
+      a {
+        color: $azul_iconica2;
 
-          }
       }
+    }
   }
   .iconica {
     @extend .col-md-2;
     @media (max-width: $screen-xs-max) {
       text-align: center;
     }
-      p {
+    p {
       font-size: .8em;
       color: $azul_iconica2;
       font-weight: 300;
@@ -592,7 +587,7 @@ footer {
       @media (max-width: $screen-xs-max) {
         margin: 0 auto;
       }
-      }
+    }
   }
 
 }
