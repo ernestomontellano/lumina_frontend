@@ -46,15 +46,21 @@
           "fotografia": "otra"
         }
       ];
-      vm.open = function (size, imagen) {
+      vm.open = function (size, elementos, posicion, tipo) {
         vm.modalInstance = $modal.open({
           templateUrl: 'app/views/carrito_compras/carro_modal.html',
           controller: 'CarritoComprasModalController',
           controllerAs: 'vmimagencarro',
           size: size,
           resolve: {
-            elemento: function () {
-              return imagen;
+            elementos: function () {
+              return elementos;
+            },
+            posicion: function () {
+              return posicion;
+            },
+            tipo: function () {
+              return tipo;
             }
           }
         });

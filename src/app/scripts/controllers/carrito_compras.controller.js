@@ -35,36 +35,59 @@
         $rootScope.carroDeCompras.splice(indice, 1);
       };
     })
-    .controller('CarritoComprasModalController', function ($rootScope, $modalInstance, elemento) {
+    .controller('CarritoComprasModalController', function ($rootScope, $modalInstance, elementos, posicion, tipo) {
       var vm = this;
-      vm.imagenCarro = elemento;
-      vm.tamanhoTemp = '0';
-      vm.elementoAgregado = 0;
-      var etiquetasTemp = '<strong>Galerías:</strong> ';
-      for (var e = 0; e < vm.imagenCarro.etiquetas.length; e++) {
-        if (e > 0) {
-          etiquetasTemp += ', ';
+      vm.elementosR = elementos;
+      vm.totalelementosR = elementos.length - 1;
+      vm.posicionR = posicion;
+      vm.tipoR = tipo;
+      vm.iniciarVals = function () {
+        vm.imagenCarro = ((vm.tipoR == 0) ? vm.elementosR[vm.posicionR] : vm.elementosR[vm.posicionR].imagenes[0]);
+        vm.tamanhoTemp = '0';
+        vm.elementoAgregado = 0;
+        var etiquetasTemp = '<strong>Galerías:</strong> ';
+        for (var e = 0; e < vm.imagenCarro.etiquetas.length; e++) {
+          if (e > 0) {
+            etiquetasTemp += ', ';
+          }
+          etiquetasTemp += '<a href ng-click="vmimagencarro.cerrarModalMostrarGaleria(' + vm.imagenCarro.etiquetas[e].id + ')">' + vm.imagenCarro.etiquetas[e].etiqueta + '</a>';
         }
-        etiquetasTemp += '<a href ng-click="vmimagencarro.cerrarModalMostrarGaleria(' + vm.imagenCarro.etiquetas[e].id + ')">' + vm.imagenCarro.etiquetas[e].etiqueta + '</a>';
-      }
-      var autorTemp = '<strong>Autor:</strong> <a href ng-click="vmimagencarro.cerrarModalMostrarFotografo(' + vm.imagenCarro.fotografo[0].id + ')">' + vm.imagenCarro.fotografo[0].nombre + '</a>';
-      vm.carroCompra = {
-        id: vm.imagenCarro.id,
-        codigo: vm.imagenCarro.codigo,
-        soporte: vm.imagenCarro.soporte[0].soporte,
-        imagen: vm.imagenCarro.imagen,
-        etiquetas: etiquetasTemp,
-        fotografos_id: vm.imagenCarro.fotografo[0].id,
-        fotografo: vm.imagenCarro.fotografo[0].nombre,
-        fotografo_html: autorTemp,
-        tamanhos_id: 0,
-        tamanho: '',
-        preciobs: 0,
-        preciosus: 0,
-        totalbs: 0,
-        totalsus: 0,
-        disponible: vm.imagenCarro.disponible,
-        cantidad: 1
+        var autorTemp = '<strong>Autor:</strong> <a href ng-click="vmimagencarro.cerrarModalMostrarFotografo(' + vm.imagenCarro.fotografo[0].id + ')">' + vm.imagenCarro.fotografo[0].nombre + '</a>';
+        vm.carroCompra = {
+          id: vm.imagenCarro.id,
+          codigo: vm.imagenCarro.codigo,
+          soporte: vm.imagenCarro.soporte[0].soporte,
+          imagen: vm.imagenCarro.imagen,
+          etiquetas: etiquetasTemp,
+          fotografos_id: vm.imagenCarro.fotografo[0].id,
+          fotografo: vm.imagenCarro.fotografo[0].nombre,
+          fotografo_html: autorTemp,
+          tamanhos_id: 0,
+          tamanho: '',
+          preciobs: 0,
+          preciosus: 0,
+          totalbs: 0,
+          totalsus: 0,
+          disponible: vm.imagenCarro.disponible,
+          cantidad: 1
+        };
+      };
+      vm.iniciarVals();
+      vm.cambiarElemento = function (valor) {
+        if (valor == 0) {
+          if (vm.posicionR == 0) {
+            vm.posicionR = vm.totalelementosR;
+          } else {
+            vm.posicionR--;
+          }
+        } else {
+          if (vm.posicionR == vm.totalelementosR) {
+            vm.posicionR = 0;
+          } else {
+            vm.posicionR++;
+          }
+        }
+        vm.iniciarVals();
       };
       vm.asignarImagenDisponible = function () {
         if (vm.tamanhoTemp != '0') {

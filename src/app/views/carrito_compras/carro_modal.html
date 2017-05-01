@@ -8,7 +8,11 @@
     <li class="row">
       <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.codigo}}"
            class="img-responsive img_detalle">
-
+      <div>
+        <a href ng-click="vmimagencarro.cambiarElemento(0)">Anterior</a>
+        &nbsp;-&nbsp;
+        <a href ng-click="vmimagencarro.cambiarElemento(1)">Siguiente</a>
+      </div>
       <div class="col-md-12 detalles">
         <div class="row">
           <div class="col-md-6 col-sm-6"><p><strong>Código: </strong>{{vmimagencarro.carroCompra.codigo}}</p>
@@ -40,9 +44,7 @@
             </p>
             <p render-html="vmimagencarro.carroCompra.etiquetas"></p>
           </div>
-
           <div class="col-md-6 col-sm-6">
-
             <div class="total" ng-if="(vmimagencarro.carroCompra.disponible>=1)&&(vmimagencarro.elementoAgregado==0)">
               <strong>PRECIO:</strong> <span>Bs. {{vmimagencarro.carroCompra.totalbs}}
                                <br>$us {{vmimagencarro.carroCompra.totalsus}}</span>
@@ -56,8 +58,6 @@
               <p><strong>Elemento agregado a las Fotografías Elegidas</strong></p>
             </div>
           </div>
-
-
         </div>
       </div>
     </li>

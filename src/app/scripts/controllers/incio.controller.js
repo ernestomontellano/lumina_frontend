@@ -7,8 +7,11 @@
       vm.contenido = new Array();
       vm.diapositivas = new Array();
       vm.etiquetadestacada = 0;
+      vm.etiquetadestacada2 = 0;
       vm.galeria = '';
+      vm.galeria2 = '';
       vm.destacada = new Array();
+      vm.destacada2 = new Array();
       var parametros = {
         comparaciones: [
           {campo: 'state', operador: 'igual', dato: 'inicio'}
@@ -18,7 +21,7 @@
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);
-            vm.contenido = response.resultado.data[0].contenido;
+            vm.contenido = response.resultado.data;
           } else {
             $log.debug('Ocurrió un error al intentar obtener el contenido')
           }
@@ -73,6 +76,55 @@
                   var rando = Math.round(Math.random() * ((response2.resultado.data.length - 1) - 0));
                   vm.destacada = response2.resultado.data[rando];
                   $log.debug(vm.destacada);
+                } else {
+                  $log.debug('Ocurrió un error al intentar obtener las imágenes')
+                }
+              });
+          } else {
+            $log.debug('Ocurrió un error al intentar obtener el contenido')
+          }
+        });
+      var parametrosb2 = {
+        comparaciones: [
+          {campo: 'id', operador: 'igual', dato: 2}
+        ]
+      };
+      TablesService.filtrar('configuraciones', parametrosb2)
+        .success(function (response) {
+          if (response.respuesta) {
+            $log.debug(response.resultado.data);
+            vm.etiquetadestacada2 = response.resultado.data[0];
+            var parametrosb3 = {
+              comparaciones: [
+                {campo: 'id', operador: 'igual', dato: vm.etiquetadestacada2.etiquetas_id}
+              ]
+            };
+            TablesService.filtrar('etiquetas', parametrosb3)
+              .success(function (response) {
+                if (response.respuesta) {
+                  vm.galeria2 = response.resultado.data[0].etiqueta;
+                } else {
+                  $log.debug('Ocurrió un error al intentar obtener la galería')
+                }
+              });
+
+            var parametrosb4 = {
+              imagenes: 'true',
+              fotografos: 'true',
+              soporte: 'true',
+              tamanhos: 'true',
+              etiquetas: 'true',
+              comparaciones: [
+                {campo: 'etiquetas_id', operador: 'igual', dato: vm.etiquetadestacada2}
+              ]
+            };
+            TablesService.filtrar('imagenesetiquetas', parametrosb4)
+              .success(function (response2) {
+                if (response2.respuesta) {
+                  $log.debug(response2.resultado.data);
+                  var rando = Math.round(Math.random() * ((response2.resultado.data.length - 1) - 0));
+                  vm.destacada2 = response2.resultado.data[rando];
+                  $log.debug(vm.destacada2);
                 } else {
                   $log.debug('Ocurrió un error al intentar obtener las imágenes')
                 }

@@ -3,7 +3,7 @@
   angular
     .module('luminaFrontend')
     .config(function ($logProvider, localStorageServiceProvider) {
-      $logProvider.debugEnabled(true);
+      $logProvider.debugEnabled(false);
       localStorageServiceProvider
         .setPrefix('luminagallery')
         .setStorageType('sessionStorage')

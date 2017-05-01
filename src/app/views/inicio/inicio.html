@@ -8,9 +8,9 @@
         </slide>
       </carousel>
     </div>
-    <div class="slogan" render-html="vminicio.contenido"></div>
-
+    <div class="slogan" render-html="vminicio.contenido[0].contenido"></div>
   </div>
+  <div class="" render-html="vminicio.contenido[1].contenido"></div>
   <div class="cont_destacados">
     <div class="destacado_home">
       <div class="txt_destacado_home">
@@ -31,14 +31,14 @@
     <div class="destacado_home">
       <div class="txt_destacado_home">
         <h4 class="gal_destacada">Galería destacada</h4>
-        <h3>{{vminicio.galeria}}</h3>
-        <p>{{vminicio.etiquetadestacada.descripcion}}</p>
-        <a href ng-click="mostrarGaleria(vminicio.etiquetadestacada.etiquetas_id)" class="btn_destacado_home">VISITAR
+        <h3>{{vminicio.galeria2}}</h3>
+        <p>{{vminicio.etiquetadestacada2.descripcion}}</p>
+        <a href ng-click="mostrarGaleria(vminicio.etiquetadestacada2.etiquetas_id)" class="btn_destacado_home">VISITAR
           GALERÍA</a>
       </div>
       <div class="img_destacado_home">
-        <a href ng-click="mostrarGaleria(vminicio.etiquetadestacada.etiquetas_id)">
-        <img ng-src="{{api}}/{{vminicio.destacada.imagenes[0].imagen}}" alt="{{vminicio.destacada.imagenes[0].nombre}}"
+        <a href ng-click="mostrarGaleria(vminicio.etiquetadestacada2.etiquetas_id)">
+        <img ng-src="{{api}}/{{vminicio.destacada2.imagenes[0].imagen}}" alt="{{vminicio.destacada2.imagenes[0].nombre}}"
              class="img-responsive">
           </a>
       </div>
