@@ -111,7 +111,48 @@ header {
       }
     }
   }
-
+.cont_busqueda{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(255,255,255,.9);
+  top:0;
+  left:0;
+  z-index:9999;
+  p{
+    text-align: center;
+    font-size: 2.4em;
+    margin-top: 4em;
+  }
+  .cont_input_buscador{
+    width: 60%;
+    margin: 0 auto;
+    .input_buscador{
+      display: block;
+      float: left;
+      width: 90%;
+      padding:20px 40px 10px 40px;
+      border:0;
+      border-bottom:1px solid black;
+      background: transparent;
+      outline:none;
+      font-size: 1.8em;
+    }
+    a{
+      cursor:pointer;
+      display:block;
+      float: right;
+      &:hover{
+        text-decoration: none;
+      }
+      span{
+        display: block;
+        padding-top: .8em;
+        font-size:2.2em !important;
+      }
+    }
+  }
+}
   h1 {
     background: url("../assets/images/logo.svg") no-repeat;
     @extend .text-hide;
@@ -127,6 +168,32 @@ header {
 
   }
 }
+
+/*RESULTADO DE BUSQUEDA*/
+.res_busqueda {
+.cont_busqueda{
+  padding-top:2em;
+  h2{    font-size: 1.4em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 2em 15px;}
+
+  ul{
+    margin-left: 15px;
+    @extend .list-unstyled;
+    li{
+      font-size: 1.4em;
+      a{
+        color:$rojo;
+      }
+    }
+  }
+}
+
+
+}
+
 
 /* HOME */
 
@@ -157,7 +224,9 @@ header {
     }
   }
 }
-
+.descripcion_home{
+  padding: 0 20px 20px 20px;
+}
 .cont_destacados {
   @extend .row;
   .destacado_home {
@@ -416,7 +485,8 @@ header {
           display: block;
           border: 1px sold $gris-medio;
           padding: 6em 4em;
-          color: $gris_claro;
+          color: white;
+          font-weight:700;
           &:hover {
             background: $gris-medio;
             text-decoration: none;

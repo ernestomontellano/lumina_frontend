@@ -47,8 +47,14 @@
       $rootScope.clicMenu = function (state) {
         $rootScope.cambiarPagina(state, {}, true);
       };
+      $rootScope.muestraBusqueda = function(){
+        $rootScope.busca=true;
+      };
       $rootScope.buscar = function (criterio) {
+
         $rootScope.cambiarPagina('busqueda', {criterio: criterio}, true);
+        $rootScope.busca=false;
+
       };
       $rootScope.mostrarFotografo = function (id) {
         var parametros = {
