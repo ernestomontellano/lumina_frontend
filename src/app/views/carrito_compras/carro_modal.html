@@ -8,7 +8,7 @@
     <li class="row">
       <img ng-src="{{api}}/{{vmimagencarro.carroCompra.imagen}}" alt="{{vmimagencarro.carroCompra.codigo}}"
            class="img-responsive img_detalle">
-      <div>
+      <div class="botones">
         <a href ng-click="vmimagencarro.cambiarElemento(0)">Anterior</a>
         &nbsp;-&nbsp;
         <a href ng-click="vmimagencarro.cambiarElemento(1)">Siguiente</a>
@@ -26,6 +26,10 @@
             <p class="disp" ng-if="(vmimagencarro.carroCompra.disponible>1)">
               <strong>Disponible: </strong>{{vmimagencarro.carroCompra.disponible}} copias
             </p>
+
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <p><strong>Soporte:</strong> {{vmimagencarro.carroCompra.soporte}}</p>
             <div ng-if="vmimagencarro.elementoAgregado==0">
               <label for="size">Tamaño: </label>
               <select name="size" id="size" ng-required="true" ng-model="vmimagencarro.tamanhoTemp"
@@ -37,17 +41,14 @@
                 </option>
               </select>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-6"><p><strong>Soporte:</strong> {{vmimagencarro.carroCompra.soporte}}</p>
             <p class="cant" ng-if="vmimagencarro.elementoAgregado==0">
               <input id="cantidad" type="hidden" ng-model="vmimagencarro.carroCompra.cantidad" ng-value="1">
             </p>
             <p render-html="vmimagencarro.carroCompra.etiquetas"></p>
-          </div>
-          <div class="col-md-6 col-sm-6">
             <div class="total" ng-if="(vmimagencarro.carroCompra.disponible>=1)&&(vmimagencarro.elementoAgregado==0)">
-              <strong>PRECIO:</strong> <span>Bs. {{vmimagencarro.carroCompra.totalbs}}
-                               <br>$us {{vmimagencarro.carroCompra.totalsus}}</span>
+              <strong>PRECIO:</strong>
+              <span>Bs. {{vmimagencarro.carroCompra.totalbs}}</span>
+              <span class="sus">$us {{vmimagencarro.carroCompra.totalsus}}</span>
             </div>
             <div ng-if="((vmimagencarro.carroCompra.totalbs>0)&&(vmimagencarro.elementoAgregado==0))">
               <button class="btn btn-success" ng-click="vmimagencarro.agregarAlCarro()"><span
@@ -58,6 +59,7 @@
               <p><strong>Elemento agregado a las Fotografías Elegidas</strong></p>
             </div>
           </div>
+
         </div>
       </div>
     </li>

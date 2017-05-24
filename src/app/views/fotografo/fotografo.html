@@ -16,11 +16,14 @@
 
     </div>
   </div>-->
-  <h2>{{vmfotografo.fotografo.nombre}}</h2>
-  <ul class="list-unstyled row galeria">
-    <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes" ng-click="vmfotografo.open('md', vmfotografo.fotografo.imagenes, $index, 0)">
-      <img ng-src="{{api}}/{{imagen.imagen}}" alt="{{imagen.codigo}}" >
-    </li>
-  </ul>
+  <div class="cont_listaobras">
+    <h2>{{vmfotografo.fotografo.nombre}}</h2>
+    <ul class="list-unstyled row galeria">
+      <li class="cont_imagen" ng-repeat="imagen in vmfotografo.fotografo.imagenes"
+          ng-click="vmfotografo.open('lg', vmfotografo.fotografo.imagenes, $index, 0)">
+        <img ng-src="{{api}}/{{imagen.imagen}}" alt="{{imagen.codigo}}">
+      </li>
+    </ul>
+  </div>
   <ng-include src="'app/views/includes/footer.html'"></ng-include>
 </div>

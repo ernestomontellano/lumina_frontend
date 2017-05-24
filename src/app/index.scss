@@ -225,7 +225,11 @@ header {
   }
 }
 .descripcion_home{
-  padding: 0 20px 20px 20px;
+  @extend .row;
+  padding: 1em 12em;
+  @media (max-width: $screen-sm-max){
+    padding: 0 20px 20px 20px;
+  }
 }
 .cont_destacados {
   @extend .row;
@@ -307,7 +311,13 @@ header {
           }
           .caption {
             @extend .col-md-7;
-            margin: 1em 0;
+            margin: 0 0 1em 0;
+            p{
+              br{
+                display: block;
+                margin-bottom: 1em;
+              }
+            }
             p.nombre {
               text-transform: uppercase;
               font-size: 1.1em;
@@ -328,6 +338,16 @@ header {
 
 /* FOTÓGRAFO */
 .fotografo {
+  .cont_listaobras{
+    padding:0 25px;
+    h2{
+      font-size: 1.4em;
+      text-transform: uppercase;
+      font-weight: 700;
+
+      margin: 0 0 1em 0;
+    }
+  }
   .ficha {
     @extend .row;
     .datos_tecnicos {
@@ -404,6 +424,7 @@ header {
 /* MODAL */
 
 .modal-header {
+  border-bottom: none;
   .modal-title {
     font-weight: 500;
     color: $gris_medio;
@@ -414,6 +435,10 @@ header {
 
 .modal-body {
   padding: 0 15px;
+  .botones{
+    float: right;
+    margin: 2em 0 0 0;
+  }
   h3 {
     margin: 0 0 .6em 0;
     text-transform: uppercase;
@@ -423,6 +448,7 @@ header {
   }
   ul {
     li {
+      padding: 0 20px;
       margin-bottom: .4em;
       color: $gris_obscuro;
       &.cant {
@@ -433,11 +459,13 @@ header {
         text-transform: uppercase;
         margin-top: 1em;
         color: $gris_obscuro;
+
         span {
           display: inline-block;
           vertical-align: top;
           text-transform: capitalize;
         }
+
       }
       .img_detalle {
         width: 100%;
@@ -446,6 +474,11 @@ header {
         margin-top: 20px;
         p {
           margin-bottom: 5px;
+        }
+        .sus{
+          display: block;
+          margin-left: 4em;
+          margin-bottom: .6em;
         }
       }
       label, strong {
