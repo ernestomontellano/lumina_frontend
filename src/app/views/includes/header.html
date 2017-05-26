@@ -20,8 +20,8 @@
             <div ng-if="busca;" class="cont_busqueda">
               <p>Busca fotógrafos y galerías:</p>
               <div class="cont_input_buscador">
-              <input autofocus class="input_buscador" type="text" ng-model="criterio_busqueda" placeholder="Escribe tu búsqueda">
-              <a ng-click="buscar(criterio_busqueda)">
+              <input autofocus class="input_buscador" type="text" ng-init="criterioBusqueda = ''" ng-model="criterioBusqueda" placeholder="Escribe tu búsqueda" ng-keypress="enviarTeclado($event, criterioBusqueda)">
+              <a ng-click="buscar(criterioBusqueda)">
                 <span class="glyphicon glyphicon-search"></span>
               </a>
               </div>

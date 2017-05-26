@@ -41,6 +41,22 @@
       vm.totalelementosR = elementos.length - 1;
       vm.posicionR = posicion;
       vm.tipoR = tipo;
+      vm.cambiarElemento = function (valor) {
+        if (valor == 0) {
+          if (vm.posicionR == 0) {
+            vm.posicionR = vm.totalelementosR;
+          } else {
+            vm.posicionR--;
+          }
+        } else {
+          if (vm.posicionR == vm.totalelementosR) {
+            vm.posicionR = 0;
+          } else {
+            vm.posicionR++;
+          }
+        }
+        vm.iniciarVals();
+      };
       vm.iniciarVals = function () {
         vm.imagenCarro = ((vm.tipoR == 0) ? vm.elementosR[vm.posicionR] : vm.elementosR[vm.posicionR].imagenes[0]);
         vm.tamanhoTemp = '0';
@@ -53,6 +69,16 @@
           etiquetasTemp += '<a href ng-click="vmimagencarro.cerrarModalMostrarGaleria(' + vm.imagenCarro.etiquetas[e].id + ')">' + vm.imagenCarro.etiquetas[e].etiqueta + '</a>';
         }
         var autorTemp = '<strong>Autor:</strong> <a href ng-click="vmimagencarro.cerrarModalMostrarFotografo(' + vm.imagenCarro.fotografo[0].id + ')">' + vm.imagenCarro.fotografo[0].nombre + '</a>';
+        vm.teclaPresionada = function (keyEvent) {
+          switch (keyEvent.which) {
+            case 37:
+              vm.cambiarElemento(0);
+              break;
+            case 39:
+              vm.cambiarElemento(1);
+              break;
+          }
+        };
         vm.carroCompra = {
           id: vm.imagenCarro.id,
           codigo: vm.imagenCarro.codigo,
@@ -73,22 +99,6 @@
         };
       };
       vm.iniciarVals();
-      vm.cambiarElemento = function (valor) {
-        if (valor == 0) {
-          if (vm.posicionR == 0) {
-            vm.posicionR = vm.totalelementosR;
-          } else {
-            vm.posicionR--;
-          }
-        } else {
-          if (vm.posicionR == vm.totalelementosR) {
-            vm.posicionR = 0;
-          } else {
-            vm.posicionR++;
-          }
-        }
-        vm.iniciarVals();
-      };
       vm.asignarImagenDisponible = function () {
         if (vm.tamanhoTemp != '0') {
           var temp = vm.tamanhoTemp.split('//');

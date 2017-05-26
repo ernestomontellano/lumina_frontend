@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('GaleriaController', function ($log, $rootScope, $stateParams, TablesService, $modal) {
+    .controller('GaleriaController', function ($log, $rootScope, $stateParams, TablesService, $modal, $timeout) {
       var vm = this;
       vm.galeria = new Array();
       vm.imagenes = new Array();
@@ -63,6 +63,11 @@
               return tipo;
             }
           }
+        });
+        vm.modalInstance.opened.then(function () {
+          $timeout(function () {
+            angular.element('#modcont').focus();
+          }, 1000);
         });
       };
     });

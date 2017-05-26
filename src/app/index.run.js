@@ -5,6 +5,7 @@
     .run(function ($rootScope, $state, $log, $window, localStorageService) {
       // $rootScope.api = 'http://localhost:8000';
       $rootScope.api = 'http://luminaapi.lumina.gallery';
+      $rootScope.criterioBusqueda = '';
       $rootScope.carroDeCompras = new Array();
       $rootScope.carroDeComprasDatos = new Array();
       if (JSON.parse(localStorageService.get("cart"))) {
@@ -47,14 +48,17 @@
       $rootScope.clicMenu = function (state) {
         $rootScope.cambiarPagina(state, {}, true);
       };
-      $rootScope.muestraBusqueda = function(){
-        $rootScope.busca=true;
+      $rootScope.muestraBusqueda = function () {
+        $rootScope.busca = true;
       };
       $rootScope.buscar = function (criterio) {
-
         $rootScope.cambiarPagina('busqueda', {criterio: criterio}, true);
-        $rootScope.busca=false;
-
+        $rootScope.busca = false;
+      };
+      $rootScope.enviarTeclado = function (keyEvent, cribus) {
+        if (keyEvent.which === 13) {
+          $rootScope.buscar(cribus);
+        }
       };
       $rootScope.mostrarFotografo = function (id) {
         var parametros = {
@@ -68,25 +72,25 @@
         }
         $rootScope.cambiarPagina('galeria', parametros, true);
       };
-    //  $rootScope.flg = 0;
-     /* angular.element(window).resize(function () {
-        if ($window.innerWidth < 768) {
-          $log.debug("es menor");
-         // $rootScope.muestra_cont = false;
-        } else {
-          $log.debug("es mayor");
-          $rootScope.muestra_cont = true;
-        }
-      });*/
-     /* $rootScope.muestra_cont=true;
-      $rootScope.muestraMenu = function () {
-        if ($rootScope.flg == 0) {
-          $rootScope.flg = 1;
-          $rootScope.muestra_cont = true;
-        } else if ($rootScope.flg == 1) {
-          $rootScope.flg = 0;
-          $rootScope.muestra_cont = false;
-        }
-      }*/
+      //  $rootScope.flg = 0;
+      /* angular.element(window).resize(function () {
+       if ($window.innerWidth < 768) {
+       $log.debug("es menor");
+       // $rootScope.muestra_cont = false;
+       } else {
+       $log.debug("es mayor");
+       $rootScope.muestra_cont = true;
+       }
+       });*/
+      /* $rootScope.muestra_cont=true;
+       $rootScope.muestraMenu = function () {
+       if ($rootScope.flg == 0) {
+       $rootScope.flg = 1;
+       $rootScope.muestra_cont = true;
+       } else if ($rootScope.flg == 1) {
+       $rootScope.flg = 0;
+       $rootScope.muestra_cont = false;
+       }
+       }*/
     });
 })();

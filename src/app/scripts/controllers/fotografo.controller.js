@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('luminaFrontend')
-    .controller('FotografoController', function ($log, $rootScope, $stateParams, TablesService, $modal) {
+    .controller('FotografoController', function ($log, $rootScope, $stateParams, TablesService, $modal, $timeout) {
       var vm = this;
       vm.fotografo = new Array();
       vm.animationsEnabled = true;
@@ -42,6 +42,11 @@
               return tipo;
             }
           }
+        });
+        vm.modalInstance.opened.then(function () {
+          $timeout(function () {
+            angular.element('#modcont').focus();
+          }, 1000);
         });
       };
     });
