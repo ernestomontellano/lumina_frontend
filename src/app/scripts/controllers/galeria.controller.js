@@ -11,7 +11,7 @@
           {campo: 'id', operador: 'igual', dato: $stateParams.id}
         ]
       };
-      TablesService.filtrar('etiquetas', parametros)
+      TablesService.shower('etiquetas', parametros)
         .success(function (response) {
           if (response.respuesta) {
             vm.galeria = response.resultado.data[0];
@@ -25,7 +25,7 @@
                 {campo: 'etiquetas_id', operador: 'igual', dato: $stateParams.id}
               ]
             };
-            TablesService.filtrar('imagenesetiquetas', parametros2)
+            TablesService.shower('imagenesetiquetas', parametros2)
               .success(function (response2) {
                 if (response2.respuesta) {
                   $log.debug(response2.resultado.data);

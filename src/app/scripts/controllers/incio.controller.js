@@ -17,7 +17,7 @@
           {campo: 'state', operador: 'igual', dato: 'inicio'}
         ]
       };
-      TablesService.filtrar('contenidos', parametros)
+      TablesService.shower('contenidos', parametros)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);
@@ -40,7 +40,7 @@
           {campo: 'id', operador: 'igual', dato: 1}
         ]
       };
-      TablesService.filtrar('configuraciones', parametros2)
+      TablesService.shower('configuraciones', parametros2)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);
@@ -50,7 +50,7 @@
                 {campo: 'id', operador: 'igual', dato: vm.etiquetadestacada.etiquetas_id}
               ]
             };
-            TablesService.filtrar('etiquetas', parametros3)
+            TablesService.shower('etiquetas', parametros3)
               .success(function (response) {
                 if (response.respuesta) {
                   vm.galeria = response.resultado.data[0].etiqueta;
@@ -69,7 +69,7 @@
                 {campo: 'etiquetas_id', operador: 'igual', dato: vm.etiquetadestacada}
               ]
             };
-            TablesService.filtrar('imagenesetiquetas', parametros4)
+            TablesService.shower('imagenesetiquetas', parametros4)
               .success(function (response2) {
                 if (response2.respuesta) {
                   $log.debug(response2.resultado.data);
@@ -89,7 +89,7 @@
           {campo: 'id', operador: 'igual', dato: 2}
         ]
       };
-      TablesService.filtrar('configuraciones', parametrosb2)
+      TablesService.shower('configuraciones', parametrosb2)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);
@@ -99,7 +99,7 @@
                 {campo: 'id', operador: 'igual', dato: vm.etiquetadestacada2.etiquetas_id}
               ]
             };
-            TablesService.filtrar('etiquetas', parametrosb3)
+            TablesService.shower('etiquetas', parametrosb3)
               .success(function (response) {
                 if (response.respuesta) {
                   vm.galeria2 = response.resultado.data[0].etiqueta;
@@ -118,7 +118,7 @@
                 {campo: 'etiquetas_id', operador: 'igual', dato: vm.etiquetadestacada2}
               ]
             };
-            TablesService.filtrar('imagenesetiquetas', parametrosb4)
+            TablesService.shower('imagenesetiquetas', parametrosb4)
               .success(function (response2) {
                 if (response2.respuesta) {
                   $log.debug(response2.resultado.data);

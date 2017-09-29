@@ -16,7 +16,7 @@
           {campo: 'id', operador: 'igual', dato: $stateParams.id}
         ]
       };
-      TablesService.filtrar('fotografos', parametros)
+      TablesService.shower('fotografos', parametros)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data[0]);

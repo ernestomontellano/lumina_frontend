@@ -10,7 +10,7 @@
           {campo: 'state', operador: 'igual', dato: 'contacto'}
         ]
       };
-      TablesService.filtrar('contenidos', parametros)
+      TablesService.shower('contenidos', parametros)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);

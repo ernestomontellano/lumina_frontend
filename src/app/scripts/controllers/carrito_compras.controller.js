@@ -5,7 +5,7 @@
     .controller('CarritoComprasController', function ($rootScope, $log, TablesService) {
       var vm = this;
       vm.zonas = new Array();
-      TablesService.filtrar('zonas', {})
+      TablesService.shower('zonas', {})
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);

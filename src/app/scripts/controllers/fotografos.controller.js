@@ -10,7 +10,7 @@
           {campo: 'nombre', direccion: 'asc'}
         ]
       };
-      TablesService.filtrar('fotografos', parametros)
+      TablesService.shower('fotografos', parametros)
         .success(function (response) {
           if (response.respuesta) {
             vm.fotografos = response.resultado.data;

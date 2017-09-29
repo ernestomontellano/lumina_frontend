@@ -16,7 +16,7 @@
             {campo: 'etiquetas_id', operador: 'igual', dato: vm.tematicas[tempos].id}
           ]
         };
-        TablesService.filtrar('imagenesetiquetas', parametros4)
+        TablesService.shower('imagenesetiquetas', parametros4)
           .success(function (response2) {
             if (response2.respuesta) {
               $log.debug(response2.resultado.data);
@@ -33,7 +33,7 @@
           {campo: 'etiqueta', direccion: 'asc'}
         ]
       };
-      TablesService.filtrar('etiquetas', parametros)
+      TablesService.shower('etiquetas', parametros)
         .success(function (response) {
           if (response.respuesta) {
             $log.debug(response.resultado.data);

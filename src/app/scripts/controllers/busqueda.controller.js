@@ -17,7 +17,7 @@
             {campo: 'nombre', operador: 'like', dato: vm.criterio}
           ]
         };
-        TablesService.filtrar('fotografos', parametros)
+        TablesService.shower('fotografos', parametros)
           .success(function (response) {
             if (response.respuesta) {
               $log.debug(response.resultado.data);
@@ -45,7 +45,7 @@
                   {campo: 'biografia', operador: 'like', dato: vm.criterio}
                 ]
               };
-              TablesService.filtrar('fotografos', parametros)
+              TablesService.shower('fotografos', parametros)
                 .success(function (response) {
                   if (response.respuesta) {
                     $log.debug(response.resultado.data);
@@ -71,7 +71,7 @@
                         {campo: 'etiqueta', operador: 'like', dato: vm.criterio}
                       ]
                     };
-                    TablesService.filtrar('etiquetas', parametros)
+                    TablesService.shower('etiquetas', parametros)
                       .success(function (response) {
                         if (response.respuesta) {
                           $log.debug(response.resultado.data);

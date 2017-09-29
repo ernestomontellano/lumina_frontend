@@ -9,8 +9,8 @@ angular
       visualizar: function (tabla, id) {
         return $http.get($rootScope.api + '/api/' + tabla + '/visualizar/' + id);
       },
-      filtrar: function (tabla, parametros) {
-        return $http.post($rootScope.api + '/api/' + tabla + '/filtrar', parametros);
+      shower: function (tabla, parametros) {
+        return $http.post($rootScope.api + '/api/' + tabla + '/shower', parametros);
       },
       almacenar: function (tabla, parametros) {
         parametros['token'] = $rootScope.tk;
