@@ -3,7 +3,7 @@
   angular
     .module('luminaFrontend')
     .run(function ($rootScope, $state, $log, $window, localStorageService) {
-      $rootScope.api = 'http://lumback.lumina.gallery';
+      $rootScope.api = 'http://lumina.gallery/lumback';
       $rootScope.criterioBusqueda = '';
       $rootScope.carroDeCompras = new Array();
       $rootScope.carroDeComprasDatos = new Array();
